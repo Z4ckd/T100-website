@@ -1,0 +1,718 @@
+/* ===== MOBILE RESPONSIVE STYLES ===== */
+/* Add this to the end of your style.css or as a separate mobile.css file */
+
+/* ===== STICKY NAVBAR ON MOBILE ===== */
+@media (max-width: 900px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Add padding to body to account for fixed navbar */
+  body {
+    padding-top: 60px;
+  }
+}
+
+/* ===== MOBILE NAVIGATION ===== */
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #111;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 1000;
+  padding: 80px 24px 24px;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 16px 0;
+  color: #111;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-menu a:hover {
+  color: #E2012D;
+}
+
+.mobile-menu .mobile-cta {
+  margin-top: 24px;
+  padding: 16px 24px;
+  background: #E2012D;
+  color: #fff !important;
+  border-radius: 12px;
+  text-align: center;
+  border: none;
+}
+
+/* ===== TABLET BREAKPOINT (max-width: 900px) ===== */
+@media (max-width: 900px) {
+  /* Navigation */
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  #nav-cta {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  /* Hero Section */
+  .hero2-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 20px;
+  }
+
+  .hero2-title {
+    font-size: 42px;
+  }
+
+  .hero2-subtitle {
+    font-size: 16px;
+  }
+
+  .hero2-right {
+    order: -1;
+  }
+
+  .hero2-image {
+    height: 280px;
+  }
+
+  .hero2-stats {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .stat-number {
+    font-size: 36px;
+  }
+
+  /* Benefits Grid */
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Steps Grid */
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .step:not(:last-child)::after {
+    display: none;
+  }
+
+  /* Testimonials */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ready to Grow */
+  .ready-to-grow-wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+.ready-to-grow-right {
+    display: none;
+  }
+
+  .ready-to-grow-left {
+    order: 0;
+  }
+
+  /* Show image inside the left column after features */
+  .ready-to-grow-left .section-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ready-to-grow-left .section-cta::before {
+    content: "";
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    height: 300px;
+    background-image: url('../media/images/pisour ai.jpg');
+    background-size: cover;
+    background-position: center top;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    order: -1;
+  }
+
+  .ready-to-grow-image {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 16px;
+  }
+
+  .ready-to-grow .section-title {
+    font-size: 32px;
+  }
+
+  /* Download Section */
+  .download-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .download-benefits {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  /* Section Headers */
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+  }
+
+  /* Container */
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* ===== MOBILE BREAKPOINT (max-width: 600px) ===== */
+@media (max-width: 600px) {
+  /* Navigation */
+  .navbar {
+    padding: 10px 16px;
+  }
+
+  .brand-logo {
+    height: 32px;
+  }
+
+  /* Hero Section */
+  .hero2 {
+    padding-top: 0;
+  }
+
+  .hero2-inner {
+    padding: 24px 16px;
+    gap: 24px;
+  }
+
+  .hero2-title {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+
+  .hero2-subtitle {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .pill {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .hero2-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hero2-actions .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero2-image-wrap {
+    border-radius: 16px;
+  }
+
+  .hero2-image {
+    height: 220px;
+  }
+
+  .hero2-stats {
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .stat-number {
+    font-size: 28px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+
+  /* Sections Padding */
+  .merchant-benefits,
+  .shoppers-benefits,
+  .how-it-works,
+  .success-stories,
+  .ready-to-grow,
+  .download-app {
+    padding: 40px 0;
+  }
+
+  /* Section Headers */
+  .section-header {
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    margin: 12px 0 16px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  /* Benefit Cards */
+  .benefit {
+    padding: 20px;
+  }
+
+  .benefit-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .benefit-icon img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .benefit h2,
+  .benefit h3 {
+    font-size: 16px;
+  }
+
+  .benefit p {
+    font-size: 13px;
+  }
+
+  /* Steps */
+  .step {
+    padding: 20px;
+  }
+
+  .step-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .step-icon img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .step h3 {
+    font-size: 16px;
+  }
+
+  .step p {
+    font-size: 13px;
+  }
+
+  /* Testimonials */
+  .testimonial {
+    padding: 16px;
+  }
+
+  .testimonial-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .testimonial-name {
+    font-size: 14px;
+  }
+
+  .testimonial-role {
+    font-size: 11px;
+  }
+
+  .testimonial-comment {
+    font-size: 13px;
+  }
+
+  /* Ready to Grow */
+  .ready-to-grow {
+    padding: 40px 0 30px;
+  }
+
+  .ready-to-grow .section-header {
+    text-align: center;
+    align-items: center;
+  }
+
+  .ready-to-grow .section-title {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .ready-to-grow .section-subtitle {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .features-stack {
+    gap: 12px;
+  }
+
+  .feature-item {
+    justify-content: flex-start;
+  }
+
+  .feature-check {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  .feature-item h3 {
+    font-size: 14px;
+  }
+
+  .ready-to-grow .section-cta {
+    align-items: center;
+    text-align: center;
+  }
+
+  .ready-to-grow .btn-primary {
+    width: 100%;
+  }
+
+  .contact-text {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  /* Download App */
+  .download-app .section-title {
+    font-size: 26px;
+  }
+
+  .download-app .section-subtitle {
+    font-size: 14px;
+  }
+
+  .btn-ios,
+  .btn-android {
+    padding: 14px 24px;
+    font-size: 15px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .download-benefits {
+    gap: 12px;
+  }
+
+  .download-benefit-item {
+    font-size: 13px;
+  }
+
+  /* CTA Buttons */
+  .section-cta {
+    padding: 24px 0;
+  }
+
+  .btn-large {
+    padding: 14px 28px;
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .cta-subtitle {
+    font-size: 12px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 24px 0;
+  }
+
+  .footer p {
+    font-size: 12px;
+    padding-top: 16px;
+  }
+
+  /* Container */
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* ===== SMALL MOBILE (max-width: 380px) ===== */
+@media (max-width: 380px) {
+  .hero2-title {
+    font-size: 28px;
+  }
+
+  .hero2-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .stat {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .stat-number {
+    font-size: 24px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .ready-to-grow .section-title {
+    font-size: 22px;
+  }
+
+  .download-app .section-title {
+    font-size: 22px;
+  }
+}
+
+/* ===== TOUCH TARGETS ===== */
+@media (max-width: 900px) {
+  a, button, .btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .nav-links a {
+    min-height: auto;
+  }
+}
+
+/* ===== PREVENT HORIZONTAL SCROLL ===== */
+html, body {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 100%;
+}
+
+/* ===== IMAGE RESPONSIVENESS ===== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== FORM MOBILE STYLES ===== */
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+
+  .registration-wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .registration-form-container {
+    padding: 20px;
+  }
+
+  .merchant-form h3 {
+    font-size: 18px;
+  }
+
+  .registration-info h2 {
+    font-size: 24px;
+  }
+
+  .reg-benefit-icon {
+    font-size: 18px;
+  }
+
+  .reg-benefit h4 {
+    font-size: 14px;
+  }
+
+  .reg-benefit p {
+    font-size: 12px;
+  }
+}
+
+/* ===== CHECKBOX ALIGNMENT FIX ===== */
+.checkbox-group {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  margin: 0 !important;
+  margin-top: 2px !important;
+  cursor: pointer;
+  accent-color: #E2012D;
+  flex-shrink: 0;
+}
+
+.checkbox-group label {
+  flex: 1;
+  line-height: 1.5;
+  cursor: pointer;
+  margin: 0 !important;
+}
+
+/* ===== TERMS PAGE MOBILE ===== */
+@media (max-width: 600px) {
+  .terms-header-section {
+    padding: 30px 16px 24px;
+  }
+
+  .terms-header-section h1 {
+    font-size: 24px;
+  }
+
+  .terms-tabs {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .terms-tab {
+    width: 100%;
+    text-align: center;
+  }
+
+  .terms-content {
+    padding: 24px 0;
+  }
+
+  .terms-article h2 {
+    font-size: 16px;
+  }
+
+  .terms-article p,
+  .terms-article li {
+    font-size: 13px;
+  }
+
+  .terms-actions {
+    flex-direction: column;
+    padding: 24px 0 40px;
+  }
+
+  .terms-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* Hero image mobile placement */
+.hero2-image-mobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .hero2-image-mobile {
+    display: block;
+    margin: 24px 0;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .hero2-image-mobile .hero2-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+
+  .hero2-right {
+    display: none;
+  }
+}
