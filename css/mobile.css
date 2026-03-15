@@ -725,3 +725,10 @@ img {
     display: none !important;
   }
 }
+
+/* Hide desktop-only elements on mobile */
+@media (max-width: 900px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
