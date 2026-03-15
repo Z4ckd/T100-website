@@ -485,14 +485,30 @@
       });
     });
 
-    // Handle direct links with hash
-    if (window.location.hash) {
-      const hash = window.location.hash.substring(1);
-      const tab = document.querySelector(`[data-tab="${hash}"]`);
-      if (tab) {
-        tab.click();
-      }
+// Handle direct links with hash
+function activateTabFromHash() {
+  if (window.location.hash) {
+    const hash = window.location.hash.substring(1);
+    const tab = document.querySelector(`[data-tab="${hash}"]`);
+    if (tab) {
+      // Remove active from all tabs
+      document.querySelectorAll('.terms-tab').forEach(t => t.classList.remove('active'));
+      // Add active to this tab
+      tab.classList.add('active');
+      
+      // Hide all content
+      document.querySelectorAll('.terms-content').forEach(content => content.classList.remove('active'));
+      // Show selected content
+      document.getElementById(hash).classList.add('active');
     }
+  }
+}
+
+// Run on page load
+activateTabFromHash();
+
+// Also run when hash changes (clicking links on same page)
+window.addEventListener('hashchange', activateTabFromHash);
   </script>
 
 </body>
