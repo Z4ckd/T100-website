@@ -719,7 +719,9 @@ img {
 
 /* Hide nav CTA button on mobile */
 @media (max-width: 900px) {
-  .nav-cta {
-    display: none;
+  .nav-cta,
+  .navbar .btn-primary,
+  .navbar > a.btn {
+    display: none !important;
   }
 }
