@@ -1,0 +1,34 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  font-weight: 800;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+/* PRIMARY (Tenh100 Red) */
+.btn-primary {
+  background: #E2012D;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #ffffff;
+  color: #E2012D;
+  border: 2px solid #E2012D;
+}
+
+/* SECONDARY */
+.btn-secondary {
+  background: #000000;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  opacity: 0.85;
+}

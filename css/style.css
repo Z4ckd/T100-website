@@ -1,0 +1,1298 @@
+/* ===== GLOBAL FONT ===== */
+html, body {
+  font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Ensure form elements inherit global font */
+button, input, textarea, select {
+  font-family: inherit;
+}
+
+
+/* ===== Reset / base (prevents weird gaps) ===== */
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+/* ===== NAV (match 2nd image) ===== */
+
+
+/* ===== HERO WRAPPER ===== */
+.hero2{
+  background: #fff;
+}
+
+.hero2-inner{
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 44px 40px 60px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* ===== LEFT SIDE ===== */
+.hero2-left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pill */
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #E2012D;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  width: fit-content;
+}
+
+.pill-red {
+  background: #E2012D;
+  color: #fff;
+}
+
+.pill-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+}
+
+/* Headline like 2nd image */
+.hero2-title{
+  margin: 18px 0 14px;
+  font-size: 64px;
+  line-height: 1.06;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #111;
+}
+
+.accent{ color:#E2012D; }
+
+.hero2-subtitle{
+  margin: 0 0 24px;
+  max-width: 520px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Buttons on one row */
+.hero2-actions{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+/* Ensure your UI buttons look like 2nd image */
+.btn{
+  padding: 14px 26px;
+  border-radius: 16px;         /* less “pill”, more modern rounded */
+  font-weight: 900;
+}
+
+.btn-primary{
+  background:#E2012D;
+  color:#fff;
+}
+
+.btn-primary:hover{
+  background:#fff;
+  color:#E2012D;
+  border: 2px solid #E2012D;
+}
+
+.btn-secondary{
+  background:#111;
+  color:#fff;
+}
+
+.btn-secondary:hover{
+  opacity: 0.9;
+}
+
+/* ===== STATS (horizontal like 2nd image) ===== */
+.hero2-stats{
+  display: flex;
+  gap: 44px;
+  align-items: flex-end;
+}
+
+.stat-number{
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-label{
+  margin-top: 6px;
+  font-size: 14px;
+  color:#222;
+  font-weight: 700;
+}
+
+/* ===== RIGHT IMAGE (framed card with soft glow) ===== */
+.hero2-right{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.hero2-image-wrap{
+  width: 100%;
+  max-width: 640px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow:
+    0 22px 60px rgba(0,0,0,0.14);
+  position: relative;
+}
+
+/* subtle background glow like screenshot */
+.hero2-image-wrap::before{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background: radial-gradient(circle at 30% 40%, rgba(226,1,45,0.10), transparent 55%);
+  z-index:0;
+}
+
+.hero2-image{
+  position: relative;
+  z-index:1;
+  width: 100%;
+  height: 420px;              /* key: prevents “taking whole screen” */
+  object-fit: cover;
+  display:block;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 980px){
+  .hero2-inner{
+    grid-template-columns: 1fr;
+    padding: 28px 18px 44px;
+    gap: 28px;
+  }
+  .hero2-title{
+    font-size: 44px;
+  }
+  .hero2-image{
+    height: 320px;
+  }
+  .hero2-stats{
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body {
+  padding-top: 70px;
+}
+
+/* Logo */
+.brand{
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+
+.brand-logo{
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+/* Center links */
+.nav-links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-top: 20px;
+}
+
+/* Remove default blue underline */
+.nav-links a{
+  color: #111;
+  text-decoration: none;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.nav-links a:hover{
+  color: #E2012D;
+}
+
+/* Keep CTA on right */
+#nav-cta{
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+
+
+/* ===== MERCHANT BENEFITS ===== */
+.merchant-benefits {
+  background: #000;
+  color: #fff;
+  padding: 50px 0 20px 0;
+}
+
+.merchant-benefits .pill {
+  background: #E2012D;
+  color: #fff;
+}
+
+.merchant-benefits .section-title {
+  color: #fff;
+}
+
+.merchant-benefits .benefit {
+  color: #000000;
+}
+
+.merchant-benefits .benefit h3 {
+  color: #000000;
+}
+
+.merchant-benefits .benefit p {
+  color: #000000;
+}
+
+/* ===== SHOPPERS BENEFITS ===== */
+.shoppers-benefits {
+  background: #fff;
+  color: #111;
+  padding: 50px 0 20px 0;
+}
+
+.shoppers-benefits .pill {
+  background: #E2012D;
+  color: #ffffff;
+}
+
+.shoppers-benefits .section-title {
+  color: #000;
+}
+
+.shoppers-benefits .section-subtitle {
+  color: #000;
+}
+
+.shoppers-benefits .benefit {
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+}
+
+.shoppers-benefits .benefit h3 {
+  color: #000;
+}
+
+.shoppers-benefits .benefit p {
+  color: #000;
+}
+
+.shoppers-benefits .benefit:hover {
+  border-color: #000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.section-header .pill {
+  margin: 0 auto 16px;
+}
+
+.shoppers-benefits .section-header .section-title {
+  color: #000;
+}
+
+.shoppers-benefits .section-header .section-subtitle {
+  color: #000;
+}
+
+.section-header .section-title {
+  color: #fff;
+  margin: 0 0 4px 0;
+}
+
+.section-header .section-subtitle {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.section-cta {
+  text-align: center;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-large {
+  padding: 16px 40px;
+  font-size: 18px;
+}
+
+.cta-subtitle {
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.shoppers-benefits .cta-subtitle {
+  color: #111;
+}
+
+.how-it-works .section-subtitle {
+  font-size: 18px;
+  text-align: center;
+  color: #fff
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.benefit {
+  padding: 32px 32px 16px 32px;
+  background: #ffffff;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.benefit:hover {
+  border: 2px solid #E2012D;
+}
+
+.benefit-icon {
+  width: 45px;
+  height: 45px;
+  background: #E2012D;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.benefit-icon img {
+  width: 36px;
+  height: 36px;
+  filter: brightness(0) invert(1);
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 900;
+  margin: 16px 0 24px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+/* ===== HOW IT WORKS SECTION ===== */
+.how-it-works {
+  background: #000;
+  padding: 60px 0;
+}
+
+.how-it-works .pill {
+  background: #E2012D;
+  color: #fff;
+}
+
+.how-it-works .section-title {
+  color: #fff;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+  position: relative;
+}
+
+.step {
+  padding: 32px;
+  background: #fff;
+  border-radius: 16px;
+  border: 2px solid #333;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.step:hover {
+  background: #fff;
+  border-color: #E2012D;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(226, 1, 45, 0.3);
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  background: #E2012D;
+  top: 50%;
+  left: 100%;
+  width: calc(90% + 32px);
+  transform: translateY(-50%);
+}
+
+@media (max-width: 900px) {
+  .step:not(:last-child)::after {
+    display: none;
+  }
+}
+
+.step-icon {
+  width: 60px;
+  height: 60px;
+  background: #E2012D;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.step-icon img {
+  width: 36px;
+  height: 36px;
+  filter: brightness(0) invert(1);
+}
+
+.step h3 {
+  font-size: 20px;
+  font-weight: 900;
+  color: #000;
+  margin: 0 0 12px;
+}
+
+.step p {
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .hero2-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 28px 18px;
+  }
+
+  .hero2-title {
+    font-size: 44px;
+  }
+
+  .hero2-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero2-image {
+    height: 300px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    justify-content: center;
+  }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+  .hero2-title {
+    font-size: 36px;
+  }
+
+  .hero2-subtitle {
+    font-size: 16px;
+  }
+
+  .stat-number {
+    font-size: 34px;
+  }
+
+  .btn {
+    width: 100%; /* big tappable buttons */
+    justify-content: center;
+  }
+}
+
+a, button {
+  min-height: 44px;  /* Apple recommended */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* Hidden by default */
+.mobile-menu{
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: #fff;
+  border-top: 1px solid #eee;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  padding: 14px 18px 18px;
+  z-index: 999;
+}
+
+.mobile-menu a{
+  display: block;
+  padding: 12px 6px;
+  color: #111;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.mobile-menu a:hover{
+  color: #E2012D;
+}
+
+.mobile-menu .mobile-cta{
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  background: #E2012D;
+  color: #fff !important;
+  text-align: center;
+}
+
+/* ===== Responsive breakpoint ===== */
+@media (max-width: 900px){
+  .nav-links{
+    display: none;
+  }
+
+  #nav-cta{
+    display: flex;
+  }
+}
+
+@media (max-width: 520px){
+  /* hide the top-right CTA so header doesn't overflow */
+  #nav-cta{
+    display: none;
+  }
+
+  .brand-logo{
+    height: 34px; /* prevents header crowding */
+  }
+}
+
+/* ===== BURGER BUTTON ===== */
+.burger {
+  display: none; /* hidden on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  position: relative;
+  z-index: 3000;
+  pointer-events: auto;
+}
+
+.burger .bar {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: #111;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.mobile-menu.open {
+  display: block;
+}
+
+/* Mobile only */
+@media (max-width: 900px) {
+  .burger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+}
+
+/* ===== SUCCESS STORIES (grid layout) ===== */
+.success-stories {
+  background: #fff;
+  color: #111;
+  padding: 60px 0;
+}
+
+.success-stories .section-title { color: #000; }
+.success-stories .section-subtitle { color: #000; }
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.testimonial {
+  background: #fff;
+  border: 2px solid #000;
+  padding: 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.testimonial:hover {
+  border-color: #E2012D;
+}
+
+.testimonial-top { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; }
+.testimonial-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #E2012D; color: #fff; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; border: 2px solid #E2012D;
+}
+.testimonial-name { margin: 0; font-size: 15px; font-weight: 800; color: #000; }
+.testimonial-role { font-size: 13px; color: #000; margin-top: 4px; }
+.testimonial-stars { color: #E2012D; margin-top: 6px; font-size: 14px; }
+.testimonial-comment { color: #000; margin: 10px 0 0; font-size: 14px; line-height: 1.6; }
+
+@media (max-width: 520px) {
+  .testimonial { padding: 16px; }
+  .testimonial-avatar { width: 48px; height: 48px; }
+}
+
+/* ===== READY TO GROW SECTION ===== */
+.ready-to-grow {
+  background: #E2012D;
+  color: #111;
+  padding: 60px 0 30px 0;
+}
+
+.ready-to-grow-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.ready-to-grow-left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.ready-to-grow-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.ready-to-grow .section-header {
+  margin-bottom: 0;
+}
+
+.ready-to-grow .section-title {
+  color: #fff;
+  font-size: 44px;
+}
+
+.ready-to-grow .section-subtitle {
+  color: #fff;
+  font-size: 18px;
+  max-width: 700px;
+}
+
+.features-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  gap: 16px;
+}
+
+.feature-check {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #E2012D;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+  border: 2px solid #fff;
+  flex-shrink: 0;
+}
+
+.feature-item h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.ready-to-grow .section-cta {
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ready-to-grow .btn-primary {
+  background: #fff;
+  color: #E2012D;
+  border-radius: 8px;
+  width: fit-content;
+  padding: 16px 40px;
+}
+
+.ready-to-grow .btn-primary:hover {
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
+}
+
+.contact-text {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .ready-to-grow-wrapper {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .ready-to-grow-right {
+    display: none;
+  }
+
+  .section-cta {
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .features-stack {
+    gap: 14px;
+  }
+
+  .feature-check {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .feature-item h3 {
+    font-size: 14px;
+  }
+}
+
+/* ===== DOWNLOAD APP SECTION ===== */
+.download-app {
+  background: #fff;
+  color: #111;
+  padding: 60px 0;
+}
+
+.download-app .section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.download-app .pill {
+  background: #E2012D;
+  color: #fff;
+  margin: 0 auto 16px;
+  gap: 4px;
+  display: inline-flex;
+}
+
+.phone-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-app .section-title {
+  color: #000;
+  font-size: 44px;
+  margin: 0;
+}
+
+.download-app .section-subtitle {
+  color: #000;
+}
+
+.download-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-ios,
+.btn-android {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-ios {
+  background: #E2012D;
+  color: #fff;
+}
+
+.btn-ios:hover {
+  background: #c4011f;
+  box-shadow: 0 4px 12px rgba(226, 1, 45, 0.3);
+}
+
+.btn-android {
+  background: #000;
+  color: #fff;
+}
+
+.btn-android:hover {
+  background: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.download-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-benefits {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.download-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #000;
+  font-weight: 500;
+}
+
+.benefit-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #E2012D;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .download-app .section-title {
+    font-size: 32px;
+  }
+
+  .download-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-ios,
+  .btn-android {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .download-app .section-title {
+    font-size: 28px;
+  }
+
+  .btn-ios,
+  .btn-android {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer p {
+  color: #fff;
+  margin: 0;
+  font-size: 14px;
+  padding-top: 20px;
+  border-top: 1px solid #fff;
+}
+
+/* ===== COMPACT SECTIONS ===== */
+
+/* Reduce section padding */
+.merchant-benefits,
+.shoppers-benefits {
+  padding: 40px 0 15px 0;
+}
+
+.how-it-works,
+.success-stories {
+  padding: 40px 0;
+}
+
+/* Smaller section headers */
+.section-header {
+  margin-bottom: 24px;
+  gap: 2px;
+}
+
+.section-title {
+  font-size: 28px;
+  margin: 12px 0 16px;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+/* Smaller pills */
+.pill {
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+/* Compact benefit cards */
+.benefits-grid {
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.benefit {
+  padding: 20px 24px 12px 24px;
+}
+
+.benefit-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+}
+
+.benefit-icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.benefit h2,
+.benefit h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.benefit p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Compact steps */
+.steps-grid {
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.step {
+  padding: 24px;
+}
+
+.step-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 12px;
+}
+
+.step-icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.step h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.step p {
+  font-size: 13px;
+}
+
+/* Compact testimonials */
+.testimonials-grid {
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.testimonial {
+  padding: 16px;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  font-size: 14px;
+}
+
+.testimonial-name {
+  font-size: 14px;
+}
+
+.testimonial-role {
+  font-size: 12px;
+}
+
+.testimonial-stars {
+  font-size: 12px;
+}
+
+.testimonial-comment {
+  font-size: 13px;
+  margin: 8px 0 0;
+}
+
+/* Compact CTA sections */
+.section-cta {
+  padding: 24px 0;
+  gap: 12px;
+}
+
+.btn-large {
+  padding: 12px 32px;
+  font-size: 16px;
+}
+
+.cta-subtitle {
+  font-size: 13px;
+}
+
+/* Compact Ready to Grow */
+.ready-to-grow {
+  padding: 40px 0 20px 0;
+}
+
+.ready-to-grow .section-title {
+  font-size: 32px;
+}
+
+.ready-to-grow .section-subtitle {
+  font-size: 16px;
+}
+
+.features-stack {
+  gap: 14px;
+}
+
+.feature-check {
+  width: 28px;
+  height: 28px;
+  font-size: 12px;
+}
+
+.feature-item h3 {
+  font-size: 14px;
+}
+
+/* Compact Download section */
+.download-app {
+  padding: 40px 0;
+}
+
+.download-app .section-title {
+  font-size: 32px;
+}
+
+.download-app .section-subtitle {
+  font-size: 15px;
+}
+
+.download-benefits {
+  margin-top: 20px;
+  gap: 30px;
+}
+
+/* Smaller footer */
+.footer {
+  padding: 24px 0;
+}
+
+.footer p {
+  font-size: 13px;
+  padding-top: 16px;
+}
+
+.ready-to-grow-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ready-to-grow-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .ready-to-grow-right {
+    display: none;
+  }
+}
+
+.shoppers-benefits .benefits-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Limit section content width */
+.benefits-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.steps-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.testimonials-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero2-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ready-to-grow-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
