@@ -625,7 +625,7 @@ img {
 }
 
 /* ===== Responsive breakpoint ===== */
-@media (max-width: 900px){
+@media (max-width: 768px){
   .nav-links{
     display: none;
   }
@@ -635,7 +635,7 @@ img {
   }
 }
 
-@media (max-width: 520px){
+@media (max-width: 768px){
   /* hide the top-right CTA so header doesn't overflow */
   #nav-cta{
     display: none;
@@ -684,7 +684,7 @@ img {
 }
 
 /* Mobile only */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .burger {
     display: block;
   }

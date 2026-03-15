@@ -2,7 +2,7 @@
 /* Add this to the end of your style.css or as a separate mobile.css file */
 
 /* ===== STICKY NAVBAR ON MOBILE ===== */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .navbar {
     position: fixed;
     top: 0;
@@ -96,8 +96,8 @@
   border: none;
 }
 
-/* ===== TABLET BREAKPOINT (max-width: 900px) ===== */
-@media (max-width: 900px) {
+/* ===== MOBILE NAV BREAKPOINT (max-width: 768px) ===== */
+@media (max-width: 768px) {
   /* Navigation */
   .navbar {
     padding: 12px 20px;
