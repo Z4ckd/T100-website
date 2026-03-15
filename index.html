@@ -474,14 +474,16 @@
 
   const { PrimaryButton, SecondaryButton, IconArrowRight } = window.UI;
 
-// Nav CTA - Change this
-ReactDOM.createRoot(document.getElementById("nav-cta")).render(
-  React.createElement(
-    PrimaryButton,
-    { className: "nav-cta", onClick: () => window.location.href = 'merchants.html' },
-    "Become a Merchant"
-  )
-);
+// Nav CTA - only show on desktop
+if (window.innerWidth > 900) {
+  ReactDOM.createRoot(document.getElementById("nav-cta")).render(
+    React.createElement(
+      PrimaryButton,
+      { className: "nav-cta", onClick: () => window.location.href = 'merchants.html' },
+      "Become a Merchant"
+    )
+  );
+}
 
 // Hero Primary - Change this
 ReactDOM.createRoot(document.getElementById("hero-primary")).render(
