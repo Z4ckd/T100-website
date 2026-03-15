@@ -31,7 +31,9 @@
     <a href="index.html#success-stories">Success Stories</a>
   </nav>
 
-<div id="nav-cta" class="desktop-only"></div>
+<div id="nav-cta" class="desktop-only">
+  <a href="merchants.html" class="btn btn-primary nav-cta">Become a Merchant</a>
+</div>
 
   <!-- Mobile Burger -->
   <button class="burger" id="burger" aria-label="Toggle menu">
@@ -473,17 +475,6 @@
   if (!window.UI) throw new Error("UI not loaded (window.UI missing).");
 
   const { PrimaryButton, SecondaryButton, IconArrowRight } = window.UI;
-
-// Nav CTA - only show on desktop
-if (window.innerWidth > 900) {
-  ReactDOM.createRoot(document.getElementById("nav-cta")).render(
-    React.createElement(
-      PrimaryButton,
-      { className: "nav-cta", onClick: () => window.location.href = 'merchants.html' },
-      "Become a Merchant"
-    )
-  );
-}
 
 // Hero Primary - Change this
 ReactDOM.createRoot(document.getElementById("hero-primary")).render(

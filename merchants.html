@@ -34,7 +34,9 @@
     <a href="index.html#success-stories">Success Stories</a>
   </nav>
 
-  <div id="nav-cta" class="desktop-only"></div>
+  <div id="nav-cta" class="desktop-only">
+    <a href="merchants.html" class="btn btn-primary nav-cta">Become a Merchant</a>
+  </div>
 
   <!-- Mobile Burger -->
   <button class="burger" id="burger" aria-label="Toggle menu">
@@ -189,17 +191,6 @@
   <!-- Mount UI into the page -->
   <script>
     if (!window.UI) throw new Error("UI not loaded (window.UI missing).");
-
-    const { PrimaryButton } = window.UI;
-
-    // Nav CTA - links back to home
-    ReactDOM.createRoot(document.getElementById("nav-cta")).render(
-      React.createElement(
-        PrimaryButton,
-        { className: "nav-cta", onClick: () => window.location.href = 'index.html' },
-        "Back to Home"
-      )
-    );
 
 /// Form submission handler
 document.getElementById('merchantForm').addEventListener('submit', function(e) {
