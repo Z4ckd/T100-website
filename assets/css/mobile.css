@@ -111,6 +111,10 @@
     display: none;
   }
 
+  #nav-cta .nav-cta {
+    display: none;
+  }
+
   .burger {
     display: flex;
   }

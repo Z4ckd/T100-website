@@ -35,7 +35,7 @@
     <a href="index.html#success-stories">Success Stories</a>
   </nav>
 
-  <div id="nav-cta"></div>
+  <div id="nav-cta" class="desktop-only"></div>
 
   <!-- Mobile Burger -->
   <button class="burger" id="burger" aria-label="Toggle menu">
@@ -63,8 +63,8 @@
         
         <!-- Tab Buttons -->
         <div class="terms-tabs">
-          <button class="terms-tab active" data-tab="terms-of-service">Terms of Service</button>
-          <button class="terms-tab" data-tab="merchant-agreement">Merchant Agreement</button>
+          <button type="button" class="terms-tab active" data-tab="terms-of-service">Terms of Service</button>
+          <button type="button" class="terms-tab" data-tab="merchant-agreement">Merchant Agreement</button>
         </div>
       </div>
 
@@ -456,59 +456,51 @@
 
   <!-- Mount UI into the page -->
   <script>
-    if (!window.UI) throw new Error("UI not loaded (window.UI missing).");
+    function setActiveTermsTab(tabId, updateHash = false) {
+      const targetTab = document.querySelector(`[data-tab="${tabId}"]`);
+      const targetContent = document.getElementById(tabId);
 
-    const { PrimaryButton } = window.UI;
+      if (!targetTab || !targetContent) return;
 
-    // Nav CTA
-    ReactDOM.createRoot(document.getElementById("nav-cta")).render(
-      React.createElement(
-        PrimaryButton,
-        { className: "nav-cta", onClick: () => window.location.href = 'merchants.html' },
-        "Become a Merchant"
-      )
-    );
+      document.querySelectorAll('.terms-tab').forEach((tab) => tab.classList.remove('active'));
+      document.querySelectorAll('.terms-content').forEach((content) => content.classList.remove('active'));
 
-    // Tab switching functionality
-    document.querySelectorAll('.terms-tab').forEach(tab => {
-      tab.addEventListener('click', function() {
-        // Remove active from all tabs
-        document.querySelectorAll('.terms-tab').forEach(t => t.classList.remove('active'));
-        // Add active to clicked tab
-        this.classList.add('active');
-        
-        // Hide all content
-        document.querySelectorAll('.terms-content').forEach(content => content.classList.remove('active'));
-        // Show selected content
-        const tabId = this.getAttribute('data-tab');
-        document.getElementById(tabId).classList.add('active');
+      targetTab.classList.add('active');
+      targetContent.classList.add('active');
+
+      if (updateHash) {
+        history.replaceState(null, '', `#${tabId}`);
+      }
+    }
+
+    function activateTabFromHash() {
+      const hash = window.location.hash.substring(1);
+      setActiveTermsTab(hash || 'terms-of-service');
+    }
+
+    document.querySelectorAll('.terms-tab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        setActiveTermsTab(tab.getAttribute('data-tab'), true);
       });
     });
 
-// Handle direct links with hash
-function activateTabFromHash() {
-  if (window.location.hash) {
-    const hash = window.location.hash.substring(1);
-    const tab = document.querySelector(`[data-tab="${hash}"]`);
-    if (tab) {
-      // Remove active from all tabs
-      document.querySelectorAll('.terms-tab').forEach(t => t.classList.remove('active'));
-      // Add active to this tab
-      tab.classList.add('active');
-      
-      // Hide all content
-      document.querySelectorAll('.terms-content').forEach(content => content.classList.remove('active'));
-      // Show selected content
-      document.getElementById(hash).classList.add('active');
+    activateTabFromHash();
+    window.addEventListener('hashchange', activateTabFromHash);
+
+    if (window.UI && window.React && window.ReactDOM) {
+      const { PrimaryButton } = window.UI;
+      const navCtaRoot = document.getElementById("nav-cta");
+
+      if (PrimaryButton && navCtaRoot) {
+        ReactDOM.createRoot(navCtaRoot).render(
+          React.createElement(
+            PrimaryButton,
+            { className: "nav-cta", onClick: () => window.location.href = 'merchants.html' },
+            "Become a Merchant"
+          )
+        );
+      }
     }
-  }
-}
-
-// Run on page load
-activateTabFromHash();
-
-// Also run when hash changes (clicking links on same page)
-window.addEventListener('hashchange', activateTabFromHash);
   </script>
 
 </body>
