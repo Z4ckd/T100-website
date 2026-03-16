@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Become a Merchant – Tenh100</title>
+<title>Become a Seller – Tenh100</title>
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="assets/css/style.css" />
-<link rel="stylesheet" href="assets/css/merchants.css" />
+<link rel="stylesheet" href="assets/css/seller.css" />
 <link rel="stylesheet" href="assets/css/mobile.css" />
 <link rel="stylesheet" href="assets/ui/buttons/Button.css" />
 <link rel="stylesheet" href="assets/ui/icons/Icon.css" />
@@ -28,14 +28,14 @@
   </a>
 
   <nav class="nav-links">
-    <a href="index.html#merchant-benefits">For Merchants</a>
+    <a href="index.html#Seller-benefits">For seller</a>
     <a href="index.html#shoppers-benefits">For Shoppers</a>
     <a href="index.html#how-it-works">How It Works</a>
     <a href="index.html#success-stories">Success Stories</a>
   </nav>
 
   <div id="nav-cta" class="desktop-only">
-    <a href="merchants.html" class="btn btn-primary nav-cta">Become a Merchant</a>
+    <a href="seller.html" class="btn btn-primary nav-cta">Become a Seller</a>
   </div>
 
   <!-- Mobile Burger -->
@@ -48,11 +48,11 @@
 
 <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html#merchant-benefits">For Merchants</a>
+    <a href="index.html#Seller-benefits">For seller</a>
     <a href="index.html#shoppers-benefits">For Shoppers</a>
     <a href="index.html#how-it-works">How It Works</a>
     <a href="index.html#success-stories">Success Stories</a>
-    <a href="merchants.html" class="mobile-cta">Become a Merchant</a>
+    <a href="seller.html" class="mobile-cta">Become a Seller</a>
   </div>
 
   <!-- REGISTRATION SECTION -->
@@ -71,7 +71,7 @@
               <span class="reg-benefit-icon">⚡</span>
               <div>
                 <h4>Quick Approval</h4>
-                <p>Most merchants are approved within 24 hours.</p>
+                <p>Most seller are approved within 24 hours.</p>
               </div>
             </div>
             <div class="reg-benefit">
@@ -93,13 +93,13 @@
           <div class="contact-info">
             <p><strong>Questions?</strong></p>
             <p>📱 Telegram: +855 70 710 100</p>
-            <p>✉️ Email: merchants@tenh100.com</p>
+            <p>✉️ Email: seller@tenh100.com</p>
           </div>
         </div>
 
         <div class="registration-form-container">
-          <form class="merchant-form" id="merchantForm" action="https://formspree.io/f/xwvrqgjo" method="POST">
-            <h3>Merchant Registration</h3>
+          <form class="Seller-form" id="SellerForm" action="https://formspree.io/f/xwvrqgjo" method="POST">
+            <h3>Seller Registration</h3>
             
             <div class="form-row">
               <div class="form-group">
@@ -154,7 +154,7 @@
 
             <div class="form-group checkbox-group">
               <input type="checkbox" id="terms" name="terms" required />
-              <label for="terms">I agree to the <a href="terms.html#terms-of-service">Terms of Service</a> and <a href="terms.html#merchant-agreement">Merchant Agreement</a></label>
+              <label for="terms">I agree to the <a href="terms.html#terms-of-service">Terms of Service</a> and <a href="terms.html#Seller-agreement">Seller Agreement</a></label>
             </div>
 
             <button type="submit" class="btn btn-primary btn-full btn-large">
@@ -193,7 +193,7 @@
     if (!window.UI) throw new Error("UI not loaded (window.UI missing).");
 
 /// Form submission handler
-document.getElementById('merchantForm').addEventListener('submit', function(e) {
+document.getElementById('SellerForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const phone = document.getElementById('phone').value;
   const form = this;

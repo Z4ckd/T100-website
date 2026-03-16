@@ -257,31 +257,31 @@ body {
 
 
 
-/* ===== MERCHANT BENEFITS ===== */
-.merchant-benefits {
+/* ===== seller BENEFITS ===== */
+.seller-benefits {
   background: #000;
   color: #fff;
   padding: 50px 0 20px 0;
 }
 
-.merchant-benefits .pill {
+.seller-benefits .pill {
   background: #E2012D;
   color: #fff;
 }
 
-.merchant-benefits .section-title {
+.seller-benefits .section-title {
   color: #fff;
 }
 
-.merchant-benefits .benefit {
+.seller-benefits .benefit {
   color: #000000;
 }
 
-.merchant-benefits .benefit h3 {
+.seller-benefits .benefit h3 {
   color: #000000;
 }
 
-.merchant-benefits .benefit p {
+.seller-benefits .benefit p {
   color: #000000;
 }
 
@@ -1048,7 +1048,7 @@ img {
 /* ===== COMPACT SECTIONS ===== */
 
 /* Reduce section padding */
-.merchant-benefits,
+.seller-benefits,
 .shoppers-benefits {
   padding: 40px 0 15px 0;
 }

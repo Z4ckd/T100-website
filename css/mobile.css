@@ -313,7 +313,7 @@
   }
 
   /* Sections Padding */
-  .merchant-benefits,
+  .seller-benefits,
   .shoppers-benefits,
   .how-it-works,
   .success-stories,
@@ -600,7 +600,7 @@ img {
     padding: 20px;
   }
 
-  .merchant-form h3 {
+  .seller-form h3 {
     font-size: 18px;
   }
 
