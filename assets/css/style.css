@@ -148,7 +148,7 @@ body { margin: 0; }
 .hero2-image-wrap{
   width: 100%;
   max-width: 640px;
-  border-radius: 28px;
+  border-radius: 0;
   overflow: hidden;
   background: #fff;
   box-shadow:

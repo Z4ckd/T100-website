@@ -706,14 +706,14 @@ img {
   .hero2-image-mobile {
     display: block;
     margin: 24px 0;
-    border-radius: 16px;
+    border-radius: 0;
     overflow: hidden;
   }
 
   .hero2-image-mobile .hero2-image {
     width: 100%;
     height: auto;
-    border-radius: 16px;
+    border-radius: 0;
   }
 
   .hero2-right {
