@@ -57,22 +57,22 @@ document.addEventListener("DOMContentLoaded", () => {
   navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       const href = link.getAttribute("href");
-      
+
       // Only handle anchor links (starting with #)
       if (href.startsWith("#")) {
         e.preventDefault();
         const targetId = href.substring(1);
         const targetSection = document.getElementById(targetId);
-        
+
         if (targetSection) {
           // Find the pill inside the section header
           const pill = targetSection.querySelector(".pill");
           const scrollTarget = pill || targetSection;
-          
+
           // Scroll with offset for sticky navbar
           const navbarHeight = document.querySelector(".navbar").offsetHeight;
           const targetPosition = scrollTarget.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
-          
+
           window.scrollTo({
             top: targetPosition,
             behavior: "smooth"
