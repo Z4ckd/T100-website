@@ -587,7 +587,7 @@ body {
 }
 
 a, button {
-  min-height: 44px;  /* Apple recommended */
+  min-height: 35px;  /* Apple recommended */
 }
 
 img {
