@@ -587,7 +587,7 @@ body {
 }
 
 a, button {
-  min-height: 35px;  /* Apple recommended */
+  min-height: 0px;  
 }
 
 img {
@@ -1051,7 +1051,7 @@ img {
 }
 
 .footer-column h3 {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   font-size: 18px;
   font-weight: 800;
 }
