@@ -240,7 +240,6 @@ body {
   gap: 28px;
   flex: 1 1 auto;
   min-width: 0;
-  padding-top: 20px;
 }
 
 /* Remove default blue underline */
