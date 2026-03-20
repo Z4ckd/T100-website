@@ -1046,7 +1046,7 @@ img {
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 28px;
+  gap: 18px;
   text-align: left;
 }
 
@@ -1057,7 +1057,7 @@ img {
 }
 
 .footer-column p {
-  margin: 0 0 10px;
+  margin: 0 0 6px;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.82);
 }
@@ -1075,7 +1075,7 @@ img {
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 }
 
 .footer-links a {
@@ -1091,9 +1091,9 @@ img {
 
 .footer-bottom {
   color: #fff;
-  margin: 24px 0 0;
+  margin: 16px 0 0;
   font-size: 14px;
-  padding-top: 20px;
+  padding-top: 14px;
   border-top: 1px solid #fff;
   text-align: center;
 }
@@ -1299,7 +1299,7 @@ img {
 }
 
 .footer-grid {
-  gap: 20px;
+  gap: 14px;
 }
 
 .footer-column h3 {
