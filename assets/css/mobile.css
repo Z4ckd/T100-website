@@ -506,12 +506,12 @@
 
   /* Footer */
   .footer {
-    padding: 24px 0;
+    padding: 15px 0;
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 10px;
     text-align: center;
   }
 

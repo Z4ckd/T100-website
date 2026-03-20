@@ -1075,7 +1075,7 @@ img {
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 2px; /* Reduced from 6px */
 }
 
 .footer-links a {
