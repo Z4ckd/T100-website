@@ -509,14 +509,38 @@
     padding: 24px 0;
   }
 
-  .footer p {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .footer-links {
+    align-items: center;
+  }
+
+  .footer-column p,
+  .footer-links a,
+  .footer-bottom {
     font-size: 12px;
+  }
+
+  .footer-bottom {
     padding-top: 16px;
   }
 
   /* Container */
   .container {
     padding: 0 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  #shoppers-benefits,
+  #seller-benefits,
+  #how-it-works,
+  #success-stories {
+    scroll-margin-top: 84px;
   }
 }
 

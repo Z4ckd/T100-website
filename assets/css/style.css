@@ -207,6 +207,13 @@ body { margin: 0; }
   justify-content: space-between;
 }
 
+#shoppers-benefits,
+#seller-benefits,
+#how-it-works,
+#success-stories {
+  scroll-margin-top: 104px;
+}
+
 body {
   padding-top: 70px;
 }
@@ -1034,15 +1041,65 @@ img {
   background: #000;
   color: #fff;
   padding: 40px 0;
-  text-align: center;
 }
 
-.footer p {
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  text-align: left;
+}
+
+.footer-column h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.footer-column p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.footer-column p a {
   color: #fff;
-  margin: 0;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-column p a:hover {
+  color: #E2012D;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.footer-links a:hover {
+  color: #E2012D;
+}
+
+.footer-bottom {
+  color: #fff;
+  margin: 24px 0 0;
   font-size: 14px;
   padding-top: 20px;
   border-top: 1px solid #fff;
+  text-align: center;
+}
+
+.footer-note {
+  color: rgba(255, 255, 255, 0.82);
 }
 
 /* ===== COMPACT SECTIONS ===== */
@@ -1241,8 +1298,21 @@ img {
   padding: 24px 0;
 }
 
-.footer p {
+.footer-grid {
+  gap: 20px;
+}
+
+.footer-column h3 {
+  font-size: 17px;
+}
+
+.footer-column p,
+.footer-links a,
+.footer-bottom {
   font-size: 13px;
+}
+
+.footer-bottom {
   padding-top: 16px;
 }
 
