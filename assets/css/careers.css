@@ -9,29 +9,37 @@
   padding: 52px 18px 40px;
 }
 
-.careers-hero-inner {
-  max-width: 760px;
-}
-
-.careers-hero .pill {
-  display: inline-flex;
-  margin-bottom: 18px;
-}
-
-.careers-hero h1 {
-  font-size: 42px;
-  font-weight: 900;
-  line-height: 1.08;
-  margin: 0 0 14px;
-  color: #fff;
-}
-
-.careers-hero p {
-  max-width: 680px;
+.careers-banner-wrap {
+  position: relative;
+  max-width: 1100px;
   margin: 0 auto;
-  font-size: 15px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.82);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.careers-banner-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+}
+
+.careers-banner-pill {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1;
+  display: inline-flex;
+  margin: 0;
+  box-shadow: 0 12px 24px rgba(226, 1, 45, 0.26);
+}
+
+.careers-banner-image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .careers-content {
@@ -177,8 +185,13 @@
     padding: 40px 18px 34px;
   }
 
-  .careers-hero h1 {
-    font-size: 30px;
+  .careers-banner-wrap {
+    border-radius: 22px;
+  }
+
+  .careers-banner-pill {
+    top: 16px;
+    left: 16px;
   }
 
   .careers-content {
@@ -210,11 +223,12 @@
     align-items: flex-start;
   }
 
-  .careers-hero h1 {
-    font-size: 26px;
+  .careers-banner-pill {
+    top: 12px;
+    left: 12px;
+    padding: 8px 14px;
   }
 
-  .careers-hero p,
   .career-card p,
   .careers-cta p {
     font-size: 13px;
