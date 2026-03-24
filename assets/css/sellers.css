@@ -737,14 +737,15 @@
 }
 
 .final-cta .btn-primary {
-  background: #fff;
-  color: #E2012D;
+  background: #E2012D;
+  color: #fff;
+  border-color: #E2012D;
 }
 
 .final-cta .btn-primary:hover {
-  background: #000;
+  background: #c80028;
   color: #fff;
-  border-color: #000;
+  border-color: #c80028;
 }
 
 /* ===== RESPONSIVE ===== */

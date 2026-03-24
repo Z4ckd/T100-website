@@ -161,8 +161,9 @@
 }
 
 .careers-cta .btn-primary:hover {
-  background: #fff;
-  color: #111;
+  background: #c80028;
+  color: #fff;
+  border-color: #c80028;
 }
 
 @media (max-width: 900px) {

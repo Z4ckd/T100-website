@@ -841,17 +841,18 @@ img {
 }
 
 .ready-to-grow .btn-primary {
-  background: #fff;
-  color: #E2012D;
-  border-radius: 8px;
+  background: #E2012D;
+  color: #fff;
+  border-color: #E2012D;
+  border-radius: 14px;
   width: fit-content;
   padding: 16px 40px;
 }
 
 .ready-to-grow .btn-primary:hover {
-  background: #000;
+  background: #c80028;
   color: #fff;
-  border: 2px solid #000;
+  border-color: #c80028;
 }
 
 .contact-text {
@@ -1245,6 +1246,52 @@ img {
 
 .cta-subtitle {
   font-size: 13px;
+}
+
+/* ===== Global Button Refresh ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-weight: 900;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+  background: #E2012D;
+  color: #fff;
+  border-color: #E2012D;
+  box-shadow: 0 10px 24px rgba(226, 1, 45, 0.18);
+}
+
+.btn-primary:hover {
+  background: #c80028;
+  color: #fff;
+  border-color: #c80028;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(226, 1, 45, 0.24);
+}
+
+.btn-secondary {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+.btn-secondary:hover {
+  background: #222;
+  border-color: #222;
+  transform: translateY(-1px);
+}
+
+.btn-large {
+  min-height: 56px;
 }
 
 /* Compact Ready to Grow */
