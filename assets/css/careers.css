@@ -180,13 +180,13 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .careers-hero {
-    padding: 40px 18px 34px;
+    padding: 30px 10px 10px;
   }
 
   .careers-banner-wrap {
-    border-radius: 22px;
+    border-radius: 10px;
   }
 
   .careers-banner-pill {
@@ -207,7 +207,7 @@
   }
 
   .careers-cta {
-    padding: 28px 20px;
+    padding: 10px 10px;
   }
 
   .careers-cta h3 {
