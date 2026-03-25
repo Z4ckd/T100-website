@@ -125,6 +125,27 @@ body { margin: 0; }
   align-items: flex-end;
 }
 
+.payment-badge{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.payment-badge-image{
+  width:72px;
+  height:auto;
+  display:block;
+  border-radius:18px;
+  box-shadow:0 10px 24px rgba(0,0,0,0.12);
+}
+
+.payment-badge-text{
+  font-size:14px;
+  color:#222;
+  font-weight:700;
+  line-height:1.2;
+}
+
 .stat-number{
   font-size: 44px;
   font-weight: 900;

@@ -147,6 +147,10 @@
     flex-wrap: wrap;
   }
 
+  .payment-badge-image {
+    width: 64px;
+  }
+
   .stat-number {
     font-size: 36px;
   }
@@ -306,6 +310,18 @@
   .hero2-stats {
     justify-content: space-between;
     gap: 16px;
+  }
+
+  .payment-badge {
+    gap: 10px;
+  }
+
+  .payment-badge-image {
+    width: 56px;
+  }
+
+  .payment-badge-text {
+    font-size: 13px;
   }
 
   .stat-number {
@@ -554,6 +570,18 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+
+  .payment-badge {
+    gap: 8px;
+  }
+
+  .payment-badge-image {
+    width: 52px;
+  }
+
+  .payment-badge-text {
+    font-size: 12px;
   }
 
   .stat {
