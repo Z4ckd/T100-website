@@ -267,10 +267,19 @@ body { margin: 0; }
   color: #111;
 }
 
+.partners-header{
+  margin-bottom: 16px;
+  gap: 2px;
+}
+
+.partners-header .pill{
+  margin-bottom: 6px;
+}
+
 .partners-marquee{
   position: relative;
   overflow: hidden;
-  padding: 14px 0;
+  padding: 8px 0;
 }
 
 .partners-marquee::before,
@@ -297,27 +306,28 @@ body { margin: 0; }
 .partners-track{
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
   width: max-content;
   animation: partners-scroll 22s linear infinite;
 }
 
 .partner-logo-card{
-  width: 198px;
-  height: 92px;
+  width: 148px;
+  height: 69px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 10px;
-  border-radius: 28px;
+  padding: 6px 8px;
+  border-radius: 22px;
   background: rgba(255,255,255,0.92);
   border: 1px solid rgba(17,17,17,0.06);
   box-shadow: 0 16px 34px rgba(0,0,0,0.06);
+  overflow: hidden;
   flex: 0 0 auto;
 }
 
 .partner-logo-card-wide{
-  width: 258px;
+  width: 194px;
 }
 
 .partner-logo-image{
@@ -328,7 +338,7 @@ body { margin: 0; }
 }
 
 .partner-logo-khqr{
-  width: 84px;
+  width: 60px;
 }
 
 @keyframes partners-scroll{
@@ -359,13 +369,14 @@ body { margin: 0; }
   }
 
   .partner-logo-card{
-    width: 176px;
-    height: 84px;
-    padding: 14px 18px;
+    width: 132px;
+    height: 63px;
+    padding: 6px 8px;
+    border-radius: 20px;
   }
 
   .partner-logo-card-wide{
-    width: 228px;
+    width: 171px;
   }
 }
 
