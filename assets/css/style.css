@@ -1351,7 +1351,6 @@ img {
   background: #E2012D;
   color: #fff;
   border-color: #E2012D;
-  box-shadow: 0 10px 24px rgba(226, 1, 45, 0.18);
 }
 
 .btn-primary:hover {
@@ -1359,7 +1358,6 @@ img {
   color: #fff;
   border-color: #c80028;
   transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(226, 1, 45, 0.24);
 }
 
 .btn-secondary {
