@@ -147,6 +147,31 @@
     flex-wrap: wrap;
   }
 
+  .partners-section {
+    padding: 20px 0 40px;
+  }
+
+  .partners-marquee::before,
+  .partners-marquee::after {
+    width: 40px;
+  }
+
+  .partners-track {
+    gap: 14px;
+    animation-duration: 18s;
+  }
+
+  .partner-logo-card {
+    width: 156px;
+    height: 76px;
+    padding: 12px 16px;
+    border-radius: 24px;
+  }
+
+  .partner-logo-card-wide {
+    width: 212px;
+  }
+
   .payment-badge-image {
     width: 64px;
   }
@@ -333,6 +358,26 @@
   .hero2-stats {
     justify-content: flex-start;
     gap: 16px;
+  }
+
+  .partners-section {
+    padding: 16px 0 32px;
+  }
+
+  .partners-track {
+    gap: 12px;
+    animation-duration: 16s;
+  }
+
+  .partner-logo-card {
+    width: 138px;
+    height: 68px;
+    padding: 10px 14px;
+    border-radius: 20px;
+  }
+
+  .partner-logo-card-wide {
+    width: 190px;
   }
 
   .payment-badge {
@@ -614,6 +659,22 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+
+  .partners-marquee::before,
+  .partners-marquee::after {
+    width: 24px;
+  }
+
+  .partner-logo-card {
+    width: 126px;
+    height: 62px;
+    padding: 10px 12px;
+    border-radius: 18px;
+  }
+
+  .partner-logo-card-wide {
+    width: 174px;
   }
 
   .payment-badge {
