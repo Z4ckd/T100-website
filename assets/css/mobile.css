@@ -143,12 +143,30 @@
   }
 
   .hero2-stats {
-    gap: 24px;
+    gap: 18px;
     flex-wrap: wrap;
   }
 
   .payment-badge-image {
     width: 64px;
+  }
+
+  .payment-badge-partners {
+    align-items: flex-start;
+  }
+
+  .partner-pills {
+    gap: 8px;
+  }
+
+  .partner-pill {
+    min-width: 104px;
+    height: 40px;
+    padding: 0 14px;
+  }
+
+  .partner-pill-wordmark {
+    font-size: 11px;
   }
 
   .stat-number {
@@ -308,12 +326,14 @@
   }
 
   .hero2-stats {
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 16px;
   }
 
   .payment-badge {
     gap: 10px;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .payment-badge-image {
@@ -322,6 +342,20 @@
 
   .payment-badge-text {
     font-size: 13px;
+  }
+
+  .partner-pills {
+    width: 100%;
+  }
+
+  .partner-pill {
+    min-width: 96px;
+    height: 38px;
+    padding: 0 12px;
+  }
+
+  .partner-pill-wordmark {
+    font-size: 10px;
   }
 
   .stat-number {
@@ -582,6 +616,12 @@
 
   .payment-badge-text {
     font-size: 12px;
+  }
+
+  .partner-pill {
+    min-width: 92px;
+    height: 36px;
+    padding: 0 10px;
   }
 
   .stat {

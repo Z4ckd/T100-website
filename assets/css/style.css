@@ -131,6 +131,12 @@ body { margin: 0; }
   gap:12px;
 }
 
+.payment-badge-partners{
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
 .payment-badge-image{
   width:72px;
   height:auto;
@@ -144,6 +150,64 @@ body { margin: 0; }
   color:#222;
   font-weight:700;
   line-height:1.2;
+}
+
+.partner-pills{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.partner-pill{
+  min-width: 118px;
+  height: 44px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  color: #111;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.partner-pill-image{
+  width: 56px;
+  height: auto;
+  display: block;
+}
+
+.partner-pill-khqr{
+  background: #E2012D;
+  border-color: #E2012D;
+  padding: 0 14px;
+}
+
+.partner-pill-aba{
+  color: #0054A6;
+}
+
+.partner-pill-mbs{
+  background: #f5d7de;
+  color: #231f20;
+  text-transform: none;
+}
+
+.partner-pill-la{
+  color: #111;
+}
+
+.partner-pill-wordmark{
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 .stat-number{
