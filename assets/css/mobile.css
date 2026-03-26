@@ -165,8 +165,13 @@
     padding: 0 14px;
   }
 
-  .partner-pill-wordmark {
-    font-size: 11px;
+  .partner-pill-logo {
+    min-width: 110px;
+    padding: 5px 12px;
+  }
+
+  .partner-pill-brand-image {
+    max-width: 96px;
   }
 
   .stat-number {
@@ -354,8 +359,13 @@
     padding: 0 12px;
   }
 
-  .partner-pill-wordmark {
-    font-size: 10px;
+  .partner-pill-logo {
+    min-width: 100px;
+    padding: 4px 10px;
+  }
+
+  .partner-pill-brand-image {
+    max-width: 88px;
   }
 
   .stat-number {
@@ -622,6 +632,15 @@
     min-width: 92px;
     height: 36px;
     padding: 0 10px;
+  }
+
+  .partner-pill-logo {
+    min-width: 96px;
+    padding: 4px 9px;
+  }
+
+  .partner-pill-brand-image {
+    max-width: 82px;
   }
 
   .stat {

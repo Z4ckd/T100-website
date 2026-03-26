@@ -183,31 +183,30 @@ body { margin: 0; }
   display: block;
 }
 
-.partner-pill-khqr{
-  background: #E2012D;
-  border-color: #E2012D;
-  padding: 0 14px;
+.partner-pill-logo{
+  min-width: 132px;
+  padding: 6px 14px;
+  background: #fff;
 }
 
-.partner-pill-aba{
-  color: #0054A6;
+.partner-pill-brand-image{
+  width: 100%;
+  height: 100%;
+  max-width: 110px;
+  object-fit: contain;
+  display: block;
 }
 
-.partner-pill-mbs{
-  background: #f5d7de;
-  color: #231f20;
-  text-transform: none;
+.partner-pill-khqr .partner-pill-brand-image{
+  max-width: 68px;
 }
 
-.partner-pill-la{
-  color: #111;
+.partner-pill-mbs .partner-pill-brand-image{
+  max-width: 150px;
 }
 
-.partner-pill-wordmark{
-  white-space: nowrap;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+.partner-pill-la .partner-pill-brand-image{
+  max-width: 120px;
 }
 
 .stat-number{
