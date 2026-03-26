@@ -1313,7 +1313,7 @@ img {
 
 /* Smaller section headers */
 .section-header {
-  margin-bottom: 24px;
+  margin-bottom: 0px;
   gap: 2px;
 }
 
