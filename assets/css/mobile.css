@@ -152,7 +152,7 @@
   }
 
   .partners-header {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   .partners-marquee::before,
@@ -169,7 +169,7 @@
     width: 117px;
     height: 57px;
     padding: 6px 8px;
-    border-radius: 18px;
+    border-radius: 999px;
   }
 
   .partner-logo-card-wide {
@@ -377,7 +377,7 @@
     width: 104px;
     height: 51px;
     padding: 5px 7px;
-    border-radius: 16px;
+    border-radius: 999px;
   }
 
   .partner-logo-card-wide {
@@ -674,7 +674,7 @@
     width: 95px;
     height: 47px;
     padding: 4px 6px;
-    border-radius: 15px;
+    border-radius: 999px;
   }
 
   .partner-logo-card-wide {

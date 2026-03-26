@@ -268,12 +268,12 @@ body { margin: 0; }
 }
 
 .partners-header{
-  margin-bottom: 16px;
-  gap: 2px;
+  margin-bottom: 8px;
+  gap: 0;
 }
 
 .partners-header .pill{
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .partners-marquee{
@@ -318,7 +318,7 @@ body { margin: 0; }
   align-items: center;
   justify-content: center;
   padding: 6px 8px;
-  border-radius: 22px;
+  border-radius: 999px;
   background: rgba(255,255,255,0.92);
   border: 1px solid rgba(17,17,17,0.06);
   box-shadow: 0 16px 34px rgba(0,0,0,0.06);
@@ -372,7 +372,7 @@ body { margin: 0; }
     width: 132px;
     height: 63px;
     padding: 6px 8px;
-    border-radius: 20px;
+    border-radius: 999px;
   }
 
   .partner-logo-card-wide{
