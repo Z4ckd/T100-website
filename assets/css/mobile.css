@@ -100,6 +100,7 @@
 @media (max-width: 768px) {
   /* Navigation */
   .navbar {
+    grid-template-columns: auto 1fr auto;
     padding: 12px 20px;
   }
 
@@ -117,6 +118,9 @@
 
   .burger {
     display: flex;
+    grid-column: 3;
+    justify-self: end;
+    margin-left: auto;
   }
 
   /* Hero Section */
@@ -208,6 +212,10 @@
     gap: 16px;
   }
 
+  .shoppers-benefits .benefits-grid {
+    grid-template-columns: 1fr !important;
+  }
+
   /* Steps Grid */
   .steps-grid {
     grid-template-columns: 1fr;
@@ -250,9 +258,10 @@
     width: 100%;
     max-width: 280px;
     height: 300px;
-    background-image: url('../media/images/pisour ai.jpg');
-    background-size: cover;
-    background-position: center top;
+    background-image: url('../media/images/welcome.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 16px;
     margin-bottom: 24px;
     order: -1;
@@ -301,11 +310,18 @@
 @media (max-width: 600px) {
   /* Navigation */
   .navbar {
+    grid-template-columns: auto 1fr auto;
     padding: 10px 16px;
   }
 
   .brand-logo {
     height: 32px;
+  }
+
+  .burger {
+    grid-column: 3;
+    justify-self: end;
+    margin-left: auto;
   }
 
   /* Hero Section */
