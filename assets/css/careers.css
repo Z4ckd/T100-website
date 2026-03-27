@@ -37,9 +37,10 @@
 
 .careers-banner-image {
   display: block;
-  width: 100%;
+  width: 800px;
+  max-width: 100%;
   height: auto;
-  max-height: min(52vw, 720px);
+  max-height: 200px;
   object-fit: contain;
   object-position: center;
   background: #fff;
@@ -194,8 +195,10 @@
   }
 
   .careers-banner-image {
+    width: 100%;
+    max-width: 800px;
     height: auto;
-    max-height: 360px;
+    max-height: 200px;
   }
 
   .careers-content {
@@ -234,8 +237,10 @@
   }
 
   .careers-banner-image {
+    width: 100%;
+    max-width: 800px;
     height: auto;
-    max-height: 240px;
+    max-height: 200px;
   }
 
   .career-card p,
