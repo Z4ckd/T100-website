@@ -556,7 +556,7 @@ body {
 .section-header .section-subtitle {
   color: #fff;
   font-size: 18px;
-  margin-bottom: 0;
+  margin-bottom: 24px;
   text-align: center;
 }
 
@@ -1099,7 +1099,7 @@ img {
 
 .download-app .section-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .download-app .pill {
@@ -1126,6 +1126,8 @@ img {
 
 .download-app .section-subtitle {
   color: #000;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .download-buttons {
