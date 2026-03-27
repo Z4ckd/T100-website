@@ -973,9 +973,10 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 400px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
+  min-height: 360px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
   margin-left: 20px;
   margin-top: 30px;
 }
@@ -1569,11 +1570,11 @@ img {
 }
 
 .ready-to-grow-image {
-  width: 100%;
-  max-width: 500px;
+  width: min(100%, 410px);
+  max-height: 540px;
   height: auto;
-  border-radius: 16px;
-  object-fit: cover;
+  border-radius: 20px;
+  object-fit: contain;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
