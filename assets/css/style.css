@@ -405,8 +405,7 @@ body { margin: 0; }
 
 #shoppers-benefits,
 #seller-benefits,
-#how-it-works,
-#success-stories {
+#how-it-works {
   scroll-margin-top: 104px;
 }
 
@@ -898,6 +897,11 @@ img {
   .nav-cta {
     display: none;
   }
+}
+
+/* Success Stories removed sitewide */
+.success-stories {
+  display: none !important;
 }
 
 /* ===== SUCCESS STORIES (grid layout) ===== */

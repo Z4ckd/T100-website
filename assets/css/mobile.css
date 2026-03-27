@@ -419,7 +419,6 @@
   .seller-benefits,
   .shoppers-benefits,
   .how-it-works,
-  .success-stories,
   .ready-to-grow,
   .download-app {
     padding: 40px 0;
@@ -637,8 +636,7 @@
 @media (max-width: 768px) {
   #shoppers-benefits,
   #seller-benefits,
-  #how-it-works,
-  #success-stories {
+  #how-it-works {
     scroll-margin-top: 84px;
   }
 }
