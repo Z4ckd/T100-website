@@ -1037,18 +1037,18 @@ img {
 }
 
 .ready-to-grow .btn-primary {
-  background: #E2012D;
+  background: #000;
   color: #fff;
-  border-color: #E2012D;
+  border-color: #000;
   border-radius: 14px;
   width: fit-content;
   padding: 16px 40px;
 }
 
 .ready-to-grow .btn-primary:hover {
-  background: #c80028;
+  background: #222;
   color: #fff;
-  border-color: #c80028;
+  border-color: #222;
 }
 
 .contact-text {
