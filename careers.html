@@ -324,6 +324,14 @@
       recruitmentStatus.className = type ? 'form-status ' + type : 'form-status';
     }
 
+    function slugify(value) {
+      return (value || '')
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+
     document.querySelectorAll('.job-selector-button').forEach(function (button) {
       button.addEventListener('click', function () {
         const target = button.getAttribute('data-job-target');
@@ -358,9 +366,18 @@
       recruitmentButton.disabled = true;
       setFormStatus('Submitting your application...', 'loading');
 
+      const firstName = document.getElementById('candidateFirstName').value.trim();
+      const lastName = document.getElementById('candidateLastName').value.trim();
+      const email = document.getElementById('candidateEmail').value.trim();
+      const phone = document.getElementById('candidatePhone').value.trim();
+      const portfolioUrl = document.getElementById('candidatePortfolio').value.trim();
+      const note = document.getElementById('candidateNote').value.trim();
       const extension = cvFile.name.includes('.') ? cvFile.name.split('.').pop().toLowerCase() : '';
-      const safeName = cvFile.name.replace(/[^a-zA-Z0-9._-]/g, '-');
-      const filePath = 'public/' + Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '-' + safeName;
+      const roleSlug = slugify(position) || 'candidate';
+      const firstNameSlug = slugify(firstName) || 'first-name';
+      const lastNameSlug = slugify(lastName) || 'last-name';
+      const timestamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\..+/, '').replace('T', '-');
+      const filePath = 'public/' + roleSlug + '/' + firstNameSlug + '-' + lastNameSlug + '-' + timestamp + '.' + extension;
 
       supabaseClient.storage
         .from('careers-cvs')
@@ -374,13 +391,13 @@
           }
 
           return supabaseClient.from('job_applications').insert({
-            first_name: document.getElementById('candidateFirstName').value.trim(),
-            last_name: document.getElementById('candidateLastName').value.trim(),
-            email: document.getElementById('candidateEmail').value.trim(),
-            phone: document.getElementById('candidatePhone').value.trim(),
+            first_name: firstName,
+            last_name: lastName,
+            email: email,
+            phone: phone,
             position: position,
-            portfolio_url: document.getElementById('candidatePortfolio').value.trim(),
-            message: document.getElementById('candidateNote').value.trim(),
+            portfolio_url: portfolioUrl,
+            message: note,
             cv_file_path: filePath,
             cv_file_name: cvFile.name,
             cv_file_size: cvFile.size,
@@ -423,7 +440,7 @@
           } else if (message.toLowerCase().includes('bucket')) {
             setFormStatus('The CV storage bucket is missing. Please create it with the SQL script, then try again.', 'error');
           } else {
-            setFormStatus('We could not submit the application right now. Please try again or email careers@tenh100.com.', 'error');
+            setFormStatus('We could not submit the application right now. ' + (message || 'Please try again or email careers@tenh100.com.'), 'error');
           }
         })
         .finally(function () {
