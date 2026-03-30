@@ -100,9 +100,8 @@
           </div>
 
           <div class="recruitment-form-shell">
-            <form class="recruitment-form" id="RecruitmentForm" action="https://formspree.io/f/xwvrqgjo" method="POST" enctype="multipart/form-data">
+            <form class="recruitment-form" id="RecruitmentForm">
               <h4>Candidate Registration</h4>
-              <input type="hidden" name="submissionType" value="Career Application" />
 
               <div class="form-row">
                 <div class="form-group">
@@ -159,6 +158,7 @@
                 Submit Candidate Profile &rarr;
               </button>
 
+              <p class="form-status" id="RecruitmentFormStatus" aria-live="polite"></p>
               <p class="form-disclaimer">Accepted CV formats: PDF, DOC, or DOCX. If the upload does not go through, you can also email your application to <a href="mailto:careers@tenh100.com">careers@tenh100.com</a>.</p>
             </form>
           </div>
@@ -175,18 +175,71 @@
 
   <script src="assets/js/script.js"></script>
   <script src="assets/js/mobile-nav.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
+    const supabaseClient = window.supabase.createClient(
+      'https://hmajkibexmcncsmoxopb.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhtYWpraWJleG1jbmNzbW94b3BiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4NTI4NjgsImV4cCI6MjA5MDQyODg2OH0.nP9bYbn1m4xwJEOB6_V4G1dYY91b65Fnm1NK9CcBC_Y'
+    );
+
+    const recruitmentForm = document.getElementById('RecruitmentForm');
+    const recruitmentButton = recruitmentForm.querySelector('button[type="submit"]');
+    const recruitmentStatus = document.getElementById('RecruitmentFormStatus');
+
+    function setFormStatus(message, type) {
+      recruitmentStatus.textContent = message;
+      recruitmentStatus.className = type ? 'form-status ' + type : 'form-status';
+    }
+
     document.getElementById('RecruitmentForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const form = this;
       const position = document.getElementById('candidateRole').value;
+      const cvFile = document.getElementById('candidateCv').files[0];
 
-      fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      }).then(function (response) {
-        if (response.ok) {
+      if (!cvFile) {
+        setFormStatus('Please attach your CV before submitting.', 'error');
+        return;
+      }
+
+      recruitmentButton.disabled = true;
+      setFormStatus('Submitting your application...', 'loading');
+
+      const extension = cvFile.name.includes('.') ? cvFile.name.split('.').pop().toLowerCase() : '';
+      const safeName = cvFile.name.replace(/[^a-zA-Z0-9._-]/g, '-');
+      const filePath = 'public/' + Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '-' + safeName;
+
+      supabaseClient.storage
+        .from('careers-cvs')
+        .upload(filePath, cvFile, {
+          cacheControl: '3600',
+          upsert: false
+        })
+        .then(function (uploadResult) {
+          if (uploadResult.error) {
+            throw uploadResult.error;
+          }
+
+          return supabaseClient.from('job_applications').insert({
+            first_name: document.getElementById('candidateFirstName').value.trim(),
+            last_name: document.getElementById('candidateLastName').value.trim(),
+            email: document.getElementById('candidateEmail').value.trim(),
+            phone: document.getElementById('candidatePhone').value.trim(),
+            position: position,
+            portfolio_url: document.getElementById('candidatePortfolio').value.trim(),
+            message: document.getElementById('candidateNote').value.trim(),
+            cv_file_path: filePath,
+            cv_file_name: cvFile.name,
+            cv_file_size: cvFile.size,
+            cv_content_type: cvFile.type || ('application/' + extension)
+          });
+        })
+        .then(function (insertResult) {
+          if (insertResult.error) {
+            throw insertResult.error;
+          }
+
+          setFormStatus('', '');
           const overlay = document.createElement('div');
           overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(17,17,17,0.72);display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px;';
 
@@ -208,12 +261,21 @@
 
           document.body.appendChild(overlay);
           form.reset();
-        } else {
-          alert('Oops! Something went wrong while sending your application. Please try again or email careers@tenh100.com.');
-        }
-      }).catch(function () {
-        alert('Oops! Something went wrong while sending your application. Please try again or email careers@tenh100.com.');
-      });
+        })
+        .catch(function (error) {
+          const message = error && error.message ? error.message : '';
+
+          if (message.toLowerCase().includes('row-level security') || message.toLowerCase().includes('permission')) {
+            setFormStatus('Supabase is connected, but the database or storage policies are not ready yet. Please run the SQL setup first, then try again.', 'error');
+          } else if (message.toLowerCase().includes('bucket')) {
+            setFormStatus('The CV storage bucket is missing. Please create it with the SQL script, then try again.', 'error');
+          } else {
+            setFormStatus('We could not submit the application right now. Please try again or email careers@tenh100.com.', 'error');
+          }
+        })
+        .finally(function () {
+          recruitmentButton.disabled = false;
+        });
     });
   </script>
 </body>

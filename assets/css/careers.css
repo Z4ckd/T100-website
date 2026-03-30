@@ -356,6 +356,27 @@
   color: #e2012d;
 }
 
+.form-status {
+  min-height: 20px;
+  margin: 14px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.form-status.loading {
+  color: #666;
+}
+
+.form-status.error {
+  color: #c62828;
+}
+
+.btn[disabled] {
+  opacity: 0.7;
+  cursor: wait;
+  pointer-events: none;
+}
+
 @media (max-width: 900px) {
   .careers-grid {
     grid-template-columns: 1fr;
