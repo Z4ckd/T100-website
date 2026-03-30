@@ -408,7 +408,10 @@
   border: 1px solid #ececec;
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.08);
   position: sticky;
-  top: 96px;
+  top: 124px;
+  align-self: start;
+  max-height: calc(100vh - 148px);
+  overflow-y: auto;
 }
 
 .recruitment-form h4 {
