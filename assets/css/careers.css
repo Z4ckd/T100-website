@@ -151,6 +151,18 @@
   color: #444;
 }
 
+.career-highlights {
+  margin: 0 0 20px;
+  padding-left: 18px;
+  color: #444;
+}
+
+.career-highlights li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
 .career-meta-row {
   display: flex;
   justify-content: space-between;
