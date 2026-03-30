@@ -72,6 +72,20 @@
   color: #666;
 }
 
+.careers-jump-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #e2012d;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.careers-jump-link:hover {
+  color: #c80028;
+}
+
 .careers-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -184,8 +198,170 @@
   border-color: #c80028;
 }
 
+.recruitment-section {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.recruitment-copy,
+.recruitment-form-shell {
+  border-radius: 24px;
+}
+
+.recruitment-copy {
+  padding: 36px 32px;
+  background:
+    radial-gradient(circle at top left, rgba(226, 1, 45, 0.12), transparent 34%),
+    linear-gradient(145deg, #111 0%, #1e1e1e 100%);
+  color: #fff;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.14);
+}
+
+.recruitment-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.recruitment-copy h3 {
+  margin: 18px 0 12px;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.05;
+}
+
+.recruitment-copy > p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.recruitment-points {
+  display: grid;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.recruitment-point {
+  padding: 18px 18px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.recruitment-point strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.recruitment-point p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.recruitment-form-shell {
+  background: #fff;
+  padding: 24px;
+  border: 1px solid #ececec;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.08);
+}
+
+.recruitment-form h4 {
+  margin: 0 0 18px;
+  font-size: 22px;
+  font-weight: 900;
+  color: #111;
+}
+
+.recruitment-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.recruitment-form .form-group {
+  margin-bottom: 14px;
+}
+
+.recruitment-form .form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.recruitment-form .form-group input,
+.recruitment-form .form-group select,
+.recruitment-form .form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e7e7e7;
+  border-radius: 12px;
+  background: #fff;
+  color: #111;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recruitment-form .form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.recruitment-form .form-group input[type="file"] {
+  padding: 11px 12px;
+}
+
+.recruitment-form .form-group input:focus,
+.recruitment-form .form-group select:focus,
+.recruitment-form .form-group textarea:focus {
+  outline: none;
+  border-color: #e2012d;
+  box-shadow: 0 0 0 4px rgba(226, 1, 45, 0.08);
+}
+
+.recruitment-checkbox {
+  margin-bottom: 18px;
+}
+
+.recruitment-checkbox label {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.recruitment-form .form-disclaimer {
+  margin-top: 14px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #777;
+}
+
+.recruitment-form .form-disclaimer a {
+  color: #e2012d;
+}
+
 @media (max-width: 900px) {
   .careers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recruitment-section {
     grid-template-columns: 1fr;
   }
 }
@@ -215,6 +391,15 @@
 
   .career-card h2 {
     font-size: 21px;
+  }
+
+  .recruitment-copy,
+  .recruitment-form-shell {
+    padding: 24px 20px;
+  }
+
+  .recruitment-copy h3 {
+    font-size: 30px;
   }
 
   .careers-cta {
@@ -248,6 +433,10 @@
   .careers-meta {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .recruitment-form .form-row {
+    grid-template-columns: 1fr;
   }
 
   .careers-banner-pill {

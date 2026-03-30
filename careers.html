@@ -60,6 +60,7 @@
       <div class="container">
         <div class="careers-meta">
           <p class="careers-note">Each role below opens on LinkedIn</p>
+          <a class="careers-jump-link" href="#apply-now">Apply directly with your CV</a>
         </div>
 
         <div class="careers-grid">
@@ -68,7 +69,7 @@
               <span class="career-tag">Marketing</span>
             </div>
             <h2>Marketing &amp; Branding Associate</h2>
-            <p>Lead and execute TENH100’s marketing and branding initiatives across digital platforms to drive brand awareness, engagement, and platform visibility. </p>
+            <p>Lead and execute TENH100's marketing and branding initiatives across digital platforms to drive brand awareness, engagement, and platform visibility.</p>
             <div class="career-meta-row">
               <span>Phnom Penh</span>
               <span>Full-time (Hybrid)</span>
@@ -76,8 +77,95 @@
           </a>
         </div>
 
+        <section class="recruitment-section" id="apply-now">
+          <div class="recruitment-copy">
+            <span class="recruitment-eyebrow">Recruitment</span>
+            <h3>Register for current and upcoming roles</h3>
+            <p>Share your profile with the TENH100 team to be considered for any listed position. Upload your CV, add your portfolio or LinkedIn, and tell us where you can create the most impact.</p>
+
+            <div class="recruitment-points">
+              <div class="recruitment-point">
+                <strong>Apply once, stay visible</strong>
+                <p>Your application can be reviewed for this opening and future matching opportunities.</p>
+              </div>
+              <div class="recruitment-point">
+                <strong>Portfolio-friendly</strong>
+                <p>Designers, marketers, developers, and operators can include portfolio, LinkedIn, or project links.</p>
+              </div>
+              <div class="recruitment-point">
+                <strong>Quick review path</strong>
+                <p>Our team can follow up using the email and phone number you provide in the form.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="recruitment-form-shell">
+            <form class="recruitment-form" id="RecruitmentForm" action="https://formspree.io/f/xwvrqgjo" method="POST" enctype="multipart/form-data">
+              <h4>Candidate Registration</h4>
+              <input type="hidden" name="submissionType" value="Career Application" />
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="candidateFirstName">First Name *</label>
+                  <input type="text" id="candidateFirstName" name="firstName" required placeholder="Sokha" />
+                </div>
+                <div class="form-group">
+                  <label for="candidateLastName">Last Name *</label>
+                  <input type="text" id="candidateLastName" name="lastName" required placeholder="Vann" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="candidateEmail">Email Address *</label>
+                  <input type="email" id="candidateEmail" name="email" required placeholder="sokha@example.com" />
+                </div>
+                <div class="form-group">
+                  <label for="candidatePhone">Phone Number *</label>
+                  <input type="tel" id="candidatePhone" name="phone" required placeholder="+855 12 345 678" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="candidateRole">Position of Interest *</label>
+                <select id="candidateRole" name="position" required>
+                  <option value="" disabled selected>Select a listed position</option>
+                  <option value="Marketing & Branding Associate">Marketing &amp; Branding Associate</option>
+                  <option value="Future Opportunities">Future Opportunities / General Application</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="candidatePortfolio">Portfolio, LinkedIn, or Project Link *</label>
+                <input type="url" id="candidatePortfolio" name="portfolio" required placeholder="https://linkedin.com/in/yourname" />
+              </div>
+
+              <div class="form-group">
+                <label for="candidateCv">Upload CV / Resume *</label>
+                <input type="file" id="candidateCv" name="cv" accept=".pdf,.doc,.docx" required />
+              </div>
+
+              <div class="form-group">
+                <label for="candidateNote">Why are you a strong fit?</label>
+                <textarea id="candidateNote" name="message" rows="5" placeholder="Tell us about your experience, strengths, and the role you want to grow into at TENH100."></textarea>
+              </div>
+
+              <div class="checkbox-group recruitment-checkbox">
+                <input type="checkbox" id="candidateConsent" name="consent" required />
+                <label for="candidateConsent">I confirm the information submitted is accurate and I agree to be contacted by TENH100 about recruitment opportunities.</label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full btn-large">
+                Submit Candidate Profile &rarr;
+              </button>
+
+              <p class="form-disclaimer">Accepted CV formats: PDF, DOC, or DOCX. If the upload does not go through, you can also email your application to <a href="mailto:careers@tenh100.com">careers@tenh100.com</a>.</p>
+            </form>
+          </div>
+        </section>
+
         <div class="careers-cta">
-          <h3>Don&apos;t see the perfect role yet?</h3>
+          <h3>Don't see the perfect role yet?</h3>
           <p>Follow TENH100 on LinkedIn and check back as we continue building the team.</p>
           <a class="btn btn-primary btn-large" href="https://www.linkedin.com/company/98030505/" target="_blank" rel="noopener noreferrer">Explore LinkedIn Jobs</a>
         </div>
@@ -87,5 +175,46 @@
 
   <script src="assets/js/script.js"></script>
   <script src="assets/js/mobile-nav.js"></script>
+  <script>
+    document.getElementById('RecruitmentForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = this;
+      const position = document.getElementById('candidateRole').value;
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          const overlay = document.createElement('div');
+          overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(17,17,17,0.72);display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px;';
+
+          overlay.innerHTML = `
+            <div style="background:#fff;padding:40px 32px;border-radius:24px;max-width:460px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,0.24);">
+              <div style="width:80px;height:80px;background:#E2012D;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <h2 style="margin:0 0 12px;color:#111;font-size:26px;font-weight:800;font-family:'DM Sans',sans-serif;">Application Received</h2>
+              <p style="color:#555;margin:0 0 10px;line-height:1.7;font-size:15px;font-family:'DM Sans',sans-serif;">Thanks for registering your interest in the <strong>${position}</strong> role. The TENH100 team will review your profile and reach out if there is a match.</p>
+              <p style="color:#888;margin:0 0 24px;line-height:1.6;font-size:14px;font-family:'DM Sans',sans-serif;">You can keep an eye on LinkedIn for additional openings while we review submissions.</p>
+              <button onclick="this.closest('div').parentElement.remove()" class="btn btn-primary btn-large" style="width:100%;justify-content:center;">
+                Close
+              </button>
+            </div>
+          `;
+
+          document.body.appendChild(overlay);
+          form.reset();
+        } else {
+          alert('Oops! Something went wrong while sending your application. Please try again or email careers@tenh100.com.');
+        }
+      }).catch(function () {
+        alert('Oops! Something went wrong while sending your application. Please try again or email careers@tenh100.com.');
+      });
+    });
+  </script>
 </body>
 </html>
