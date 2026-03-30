@@ -410,8 +410,6 @@
   position: sticky;
   top: 124px;
   align-self: start;
-  max-height: calc(100vh - 148px);
-  overflow-y: auto;
 }
 
 .recruitment-form h4 {
