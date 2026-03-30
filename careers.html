@@ -268,8 +268,13 @@
               </div>
 
               <div class="form-group">
-                <label for="candidatePortfolio">Portfolio, LinkedIn, or Project Link *</label>
-                <input type="url" id="candidatePortfolio" name="portfolio" required placeholder="https://linkedin.com/in/yourname" />
+                <label for="candidatePortfolio">Portfolio, LinkedIn, or Project Link</label>
+                <input type="url" id="candidatePortfolio" name="portfolio" placeholder="https://linkedin.com/in/yourname" />
+              </div>
+
+              <div class="form-group">
+                <label for="candidatePortfolioFile">Upload Portfolio Files</label>
+                <input type="file" id="candidatePortfolioFile" name="portfolioFile" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.zip" />
               </div>
 
               <div class="form-group">
@@ -292,7 +297,7 @@
               </button>
 
               <p class="form-status" id="RecruitmentFormStatus" aria-live="polite"></p>
-              <p class="form-disclaimer">Accepted CV formats: PDF, DOC, or DOCX. If the upload does not go through, you can also email your application to <a href="mailto:careers@tenh100.com">careers@tenh100.com</a>.</p>
+              <p class="form-disclaimer">Accepted CV formats: PDF, DOC, or DOCX. Portfolio can be shared as a URL or uploaded as PDF, PPT, DOC, JPG, PNG, or ZIP. If the upload does not go through, you can also email your application to <a href="mailto:careers@tenh100.com">careers@tenh100.com</a>.</p>
             </form>
           </div>
         </section>
@@ -357,6 +362,7 @@
       const form = this;
       const position = document.getElementById('candidateRole').value;
       const cvFile = document.getElementById('candidateCv').files[0];
+      const portfolioFile = document.getElementById('candidatePortfolioFile').files[0];
 
       if (!cvFile) {
         setFormStatus('Please attach your CV before submitting.', 'error');
@@ -372,16 +378,27 @@
       const phone = document.getElementById('candidatePhone').value.trim();
       const portfolioUrl = document.getElementById('candidatePortfolio').value.trim();
       const note = document.getElementById('candidateNote').value.trim();
+
+      if (!portfolioUrl && !portfolioFile) {
+        setFormStatus('Please add a portfolio URL or upload a portfolio file before submitting.', 'error');
+        recruitmentButton.disabled = false;
+        return;
+      }
+
       const extension = cvFile.name.includes('.') ? cvFile.name.split('.').pop().toLowerCase() : '';
       const roleSlug = slugify(position) || 'candidate';
       const firstNameSlug = slugify(firstName) || 'first-name';
       const lastNameSlug = slugify(lastName) || 'last-name';
       const timestamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\..+/, '').replace('T', '-');
-      const filePath = 'public/' + roleSlug + '/' + firstNameSlug + '-' + lastNameSlug + '-' + timestamp + '.' + extension;
+      const cvFilePath = 'public/' + roleSlug + '/cv/' + firstNameSlug + '-' + lastNameSlug + '-' + timestamp + '.' + extension;
+      const portfolioExtension = portfolioFile && portfolioFile.name.includes('.') ? portfolioFile.name.split('.').pop().toLowerCase() : '';
+      const portfolioFilePath = portfolioFile
+        ? 'public/' + roleSlug + '/portfolio/' + firstNameSlug + '-' + lastNameSlug + '-' + timestamp + '.' + portfolioExtension
+        : null;
 
       supabaseClient.storage
         .from('careers-cvs')
-        .upload(filePath, cvFile, {
+        .upload(cvFilePath, cvFile, {
           cacheControl: '3600',
           upsert: false
         })
@@ -390,18 +407,45 @@
             throw uploadResult.error;
           }
 
+          if (portfolioFile && portfolioFilePath) {
+            return supabaseClient.storage
+              .from('careers-cvs')
+              .upload(portfolioFilePath, portfolioFile, {
+                cacheControl: '3600',
+                upsert: false
+              })
+              .then(function (portfolioUploadResult) {
+                if (portfolioUploadResult.error) {
+                  throw portfolioUploadResult.error;
+                }
+
+                return {
+                  portfolio_path: portfolioFilePath
+                };
+              });
+          }
+
+          return {
+            portfolio_path: null
+          };
+        })
+        .then(function (storageResult) {
           return supabaseClient.from('job_applications').insert({
             first_name: firstName,
             last_name: lastName,
             email: email,
             phone: phone,
             position: position,
-            portfolio_url: portfolioUrl,
+            portfolio_url: portfolioUrl || null,
             message: note,
-            cv_file_path: filePath,
+            cv_file_path: cvFilePath,
             cv_file_name: cvFile.name,
             cv_file_size: cvFile.size,
-            cv_content_type: cvFile.type || ('application/' + extension)
+            cv_content_type: cvFile.type || ('application/' + extension),
+            portfolio_file_path: storageResult.portfolio_path,
+            portfolio_file_name: portfolioFile ? portfolioFile.name : null,
+            portfolio_file_size: portfolioFile ? portfolioFile.size : null,
+            portfolio_content_type: portfolioFile ? (portfolioFile.type || ('application/' + portfolioExtension)) : null
           });
         })
         .then(function (insertResult) {
