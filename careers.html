@@ -268,8 +268,8 @@
               </div>
 
               <div class="form-group">
-                <label for="candidatePortfolioFile">Upload Portfolio Files *</label>
-                <input type="file" id="candidatePortfolioFile" name="portfolioFile" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.zip" required />
+                <label for="candidatePortfolioFile">Upload Portfolio Files</label>
+                <input type="file" id="candidatePortfolioFile" name="portfolioFile" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.zip" />
               </div>
 
               <div class="form-group">
@@ -372,12 +372,6 @@
       const email = document.getElementById('candidateEmail').value.trim();
       const phone = document.getElementById('candidatePhone').value.trim();
       const note = document.getElementById('candidateNote').value.trim();
-
-      if (!portfolioFile) {
-        setFormStatus('Please attach your portfolio before submitting.', 'error');
-        recruitmentButton.disabled = false;
-        return;
-      }
 
       const extension = cvFile.name.includes('.') ? cvFile.name.split('.').pop().toLowerCase() : '';
       const roleSlug = slugify(position) || 'candidate';
