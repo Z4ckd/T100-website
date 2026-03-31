@@ -231,7 +231,7 @@
             <div class="recruitment-copy">
               <span class="recruitment-eyebrow">Website Application</span>
               <h3>Apply directly through TENH100</h3>
-              <p>Fill out your details, upload your CV, and share your portfolio or LinkedIn. Your application will be submitted directly into TENH100's recruitment system.</p>
+              <p>Fill out your details and upload your CV and portfolio files. Your application will be submitted directly into TENH100's recruitment system.</p>
             </div>
 
             <form class="recruitment-form" id="RecruitmentForm">
@@ -268,13 +268,8 @@
               </div>
 
               <div class="form-group">
-                <label for="candidatePortfolio">Portfolio, LinkedIn, or Project Link</label>
-                <input type="url" id="candidatePortfolio" name="portfolio" placeholder="https://linkedin.com/in/yourname" />
-              </div>
-
-              <div class="form-group">
-                <label for="candidatePortfolioFile">Upload Portfolio Files</label>
-                <input type="file" id="candidatePortfolioFile" name="portfolioFile" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.zip" />
+                <label for="candidatePortfolioFile">Upload Portfolio Files *</label>
+                <input type="file" id="candidatePortfolioFile" name="portfolioFile" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.zip" required />
               </div>
 
               <div class="form-group">
@@ -297,7 +292,7 @@
               </button>
 
               <p class="form-status" id="RecruitmentFormStatus" aria-live="polite"></p>
-              <p class="form-disclaimer">Accepted CV formats: PDF, DOC, or DOCX. Portfolio can be shared as a URL or uploaded as PDF, PPT, DOC, JPG, PNG, or ZIP. If the upload does not go through, you can also email your application to <a href="mailto:careers@tenh100.com">careers@tenh100.com</a>.</p>
+              <p class="form-disclaimer">Accepted CV formats: PDF, DOC, or DOCX. Accepted portfolio formats: PDF, PPT, PPTX, DOC, DOCX, JPG, JPEG, PNG, or ZIP. If the upload does not go through, you can also email your application to <a href="mailto:careers@tenh100.com">careers@tenh100.com</a>.</p>
             </form>
           </div>
         </section>
@@ -376,11 +371,10 @@
       const lastName = document.getElementById('candidateLastName').value.trim();
       const email = document.getElementById('candidateEmail').value.trim();
       const phone = document.getElementById('candidatePhone').value.trim();
-      const portfolioUrl = document.getElementById('candidatePortfolio').value.trim();
       const note = document.getElementById('candidateNote').value.trim();
 
-      if (!portfolioUrl && !portfolioFile) {
-        setFormStatus('Please add a portfolio URL or upload a portfolio file before submitting.', 'error');
+      if (!portfolioFile) {
+        setFormStatus('Please attach your portfolio before submitting.', 'error');
         recruitmentButton.disabled = false;
         return;
       }
@@ -436,7 +430,7 @@
             email: email,
             phone: phone,
             position: position,
-            portfolio_url: portfolioUrl || null,
+            portfolio_url: null,
             message: note,
             cv_file_path: cvFilePath,
             cv_file_name: cvFile.name,
