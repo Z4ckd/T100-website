@@ -1,0 +1,25 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/careers.html",
+      "destination": "/careers",
+      "permanent": true
+    },
+    {
+      "source": "/sellers.html",
+      "destination": "/become-a-seller",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/careers",
+      "destination": "/careers.html"
+    },
+    {
+      "source": "/become-a-seller",
+      "destination": "/sellers.html"
+    }
+  ]
+}

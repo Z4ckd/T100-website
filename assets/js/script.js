@@ -6,40 +6,6 @@ window.scrollToId = function (id) {
   if (el) el.scrollIntoView({ behavior: "smooth" });
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  const routeMap = [
-    { pathPattern: /\/careers\.html$/i, cleanPath: "/careers" },
-    { pathPattern: /\/sellers\.html$/i, cleanPath: "/become-a-seller" }
-  ];
-  const currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
-  const matchedRoute = routeMap.find(
-    (route) => route.cleanPath === currentPath || route.pathPattern.test(currentPath)
-  );
-
-  if (matchedRoute) {
-    const normalizedUrl = `${matchedRoute.cleanPath}${window.location.hash || ""}`;
-
-    if (`${window.location.pathname}${window.location.hash}` !== normalizedUrl) {
-      window.history.replaceState({}, "", normalizedUrl);
-    }
-  }
-
-  const cleanLinkMap = new Map([
-    ["careers.html", "/careers"],
-    ["sellers.html", "/become-a-seller"]
-  ]);
-
-  document.querySelectorAll("a[href]").forEach((link) => {
-    const href = link.getAttribute("href");
-    const cleanHref = cleanLinkMap.get(href);
-
-    if (cleanHref) {
-      link.setAttribute("data-route-target", href);
-      link.setAttribute("href", cleanHref);
-    }
-  });
-});
-
 // Mobile nav toggle (runs after DOM is ready)
 document.addEventListener("DOMContentLoaded", () => {
   const burger = document.getElementById("burger");
