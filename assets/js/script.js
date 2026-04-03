@@ -8,6 +8,7 @@ window.scrollToId = function (id) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const homeSectionLinks = document.querySelectorAll("[data-home-section]");
+  const termsTabLinks = document.querySelectorAll("[data-terms-tab]");
   const currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
   const homeAliases = new Set(["/", "/home", "/index.html"]);
 
@@ -34,6 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!sectionId) return;
 
       sessionStorage.setItem("homeSectionTarget", sectionId);
+    });
+  });
+
+  termsTabLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const tabId = link.getAttribute("data-terms-tab");
+
+      if (!tabId) return;
+
+      sessionStorage.setItem("termsTabTarget", tabId);
     });
   });
 

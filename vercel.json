@@ -7,6 +7,11 @@
       "permanent": true
     },
     {
+      "source": "/terms.html",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
       "source": "/careers.html",
       "destination": "/careers",
       "permanent": true
@@ -21,6 +26,10 @@
     {
       "source": "/home",
       "destination": "/index.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
     },
     {
       "source": "/careers",

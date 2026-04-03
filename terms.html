@@ -568,9 +568,9 @@
         <div class="footer-column">
           <h3>Policies</h3>
           <div class="footer-links">
-            <a href="terms.html#terms-of-service">Terms of Service</a>
-            <a href="terms.html#seller-agreement">Seller Agreement</a>
-            <a href="terms.html#customer-purchase-policy">Customer Purchase Policy</a>
+            <a href="/terms" data-terms-tab="terms-of-service">Terms of Service</a>
+            <a href="/terms" data-terms-tab="seller-agreement">Seller Agreement</a>
+            <a href="/terms" data-terms-tab="customer-purchase-policy">Customer Purchase Policy</a>
           </div>
         </div>
       </div>
@@ -592,7 +592,7 @@
 
   <!-- Mount UI into the page -->
   <script>
-    function setActiveTermsTab(tabId, updateHash = false) {
+    function setActiveTermsTab(tabId, updateHistory = false) {
       const targetTab = document.querySelector(`[data-tab="${tabId}"]`);
       const targetContent = document.getElementById(tabId);
 
@@ -604,14 +604,22 @@
       targetTab.classList.add('active');
       targetContent.classList.add('active');
 
-      if (updateHash) {
-        history.replaceState(null, '', `#${tabId}`);
+      if (updateHistory) {
+        history.replaceState(null, '', '/terms');
       }
     }
 
-    function activateTabFromHash() {
-      const hash = window.location.hash.substring(1);
-      setActiveTermsTab(hash || 'terms-of-service');
+    function activateTermsTab() {
+      const hashTab = window.location.hash.substring(1);
+      const storedTab = sessionStorage.getItem('termsTabTarget');
+      const targetTab = hashTab || storedTab || 'terms-of-service';
+
+      setActiveTermsTab(targetTab);
+      sessionStorage.removeItem('termsTabTarget');
+
+      if (window.location.pathname !== '/terms' || window.location.hash) {
+        history.replaceState(null, '', '/terms');
+      }
     }
 
     document.querySelectorAll('.terms-tab').forEach((tab) => {
@@ -620,8 +628,8 @@
       });
     });
 
-    activateTabFromHash();
-    window.addEventListener('hashchange', activateTabFromHash);
+    activateTermsTab();
+    window.addEventListener('hashchange', activateTermsTab);
 
   </script>
 
