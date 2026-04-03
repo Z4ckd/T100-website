@@ -6,6 +6,56 @@ window.scrollToId = function (id) {
   if (el) el.scrollIntoView({ behavior: "smooth" });
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+  const homeSectionLinks = document.querySelectorAll("[data-home-section]");
+  const currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
+  const homeAliases = new Set(["/", "/home", "/index.html"]);
+
+  const scrollToHomeSection = (sectionId) => {
+    const targetSection = document.getElementById(sectionId);
+    if (!targetSection) return;
+
+    const pill = targetSection.querySelector(".pill");
+    const scrollTarget = pill || targetSection;
+    const navbarHeight = document.querySelector(".navbar")?.offsetHeight || 0;
+    const targetPosition =
+      scrollTarget.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth"
+    });
+  };
+
+  homeSectionLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const sectionId = link.getAttribute("data-home-section");
+
+      if (!sectionId) return;
+
+      sessionStorage.setItem("homeSectionTarget", sectionId);
+    });
+  });
+
+  if (!homeAliases.has(currentPath)) return;
+
+  const hashSection = window.location.hash.replace(/^#/, "");
+  const storedSection = sessionStorage.getItem("homeSectionTarget");
+  const targetSection = hashSection || storedSection;
+
+  if (window.location.pathname !== "/home" || window.location.hash) {
+    window.history.replaceState({}, "", "/home");
+  }
+
+  if (!targetSection) return;
+
+  sessionStorage.removeItem("homeSectionTarget");
+
+  window.setTimeout(() => {
+    scrollToHomeSection(targetSection);
+  }, 50);
+});
+
 // Mobile nav toggle (runs after DOM is ready)
 document.addEventListener("DOMContentLoaded", () => {
   const burger = document.getElementById("burger");
@@ -19,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
     menu.setAttribute("aria-hidden", String(!isOpen));
   });
 
-  // Close when a link is clicked
   menu.querySelectorAll("a").forEach((a) => {
     a.addEventListener("click", () => {
       menu.classList.remove("open");
@@ -28,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Close menu if resized up to desktop
   window.addEventListener("resize", () => {
     if (window.innerWidth > 900) {
       menu.classList.remove("open");
@@ -58,20 +106,17 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", (e) => {
       const href = link.getAttribute("href");
 
-      // Only handle anchor links (starting with #)
       if (href.startsWith("#")) {
         e.preventDefault();
         const targetId = href.substring(1);
         const targetSection = document.getElementById(targetId);
 
         if (targetSection) {
-          // Find the pill inside the section header
           const pill = targetSection.querySelector(".pill");
           const scrollTarget = pill || targetSection;
-
-          // Scroll with offset for sticky navbar
           const navbarHeight = document.querySelector(".navbar").offsetHeight;
-          const targetPosition = scrollTarget.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+          const targetPosition =
+            scrollTarget.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
 
           window.scrollTo({
             top: targetPosition,

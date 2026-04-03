@@ -2,6 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/index.html",
+      "destination": "/home",
+      "permanent": true
+    },
+    {
       "source": "/careers.html",
       "destination": "/careers",
       "permanent": true
@@ -13,6 +18,10 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/home",
+      "destination": "/index.html"
+    },
     {
       "source": "/careers",
       "destination": "/careers.html"
