@@ -6,6 +6,45 @@ window.scrollToId = function (id) {
   if (el) el.scrollIntoView({ behavior: "smooth" });
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+  const routeMap = [
+    { pathPattern: /\/index\.html$/i, cleanPath: "/home" },
+    { pathPattern: /\/careers\.html$/i, cleanPath: "/careers" },
+    { pathPattern: /\/sellers\.html$/i, cleanPath: "/become-a-seller" }
+  ];
+  const currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
+  const matchedRoute = routeMap.find(
+    (route) => route.cleanPath === currentPath || route.pathPattern.test(currentPath)
+  );
+
+  if (matchedRoute) {
+    const normalizedUrl = `${matchedRoute.cleanPath}${window.location.hash || ""}`;
+
+    if (`${window.location.pathname}${window.location.hash}` !== normalizedUrl) {
+      window.history.replaceState({}, "", normalizedUrl);
+    }
+  }
+
+  const cleanLinkMap = new Map([
+    ["index.html", "/home"],
+    ["index.html#shoppers-benefits", "/home#shoppers-benefits"],
+    ["index.html#seller-benefits", "/home#seller-benefits"],
+    ["index.html#how-it-works", "/home#how-it-works"],
+    ["careers.html", "/careers"],
+    ["sellers.html", "/become-a-seller"]
+  ]);
+
+  document.querySelectorAll("a[href]").forEach((link) => {
+    const href = link.getAttribute("href");
+    const cleanHref = cleanLinkMap.get(href);
+
+    if (cleanHref) {
+      link.setAttribute("data-route-target", href);
+      link.setAttribute("href", cleanHref);
+    }
+  });
+});
+
 // Mobile nav toggle (runs after DOM is ready)
 document.addEventListener("DOMContentLoaded", () => {
   const burger = document.getElementById("burger");
@@ -119,7 +158,10 @@ document.addEventListener("DOMContentLoaded", () => {
     'a[href="#how-it-works"]',
     'a[href="index.html#shoppers-benefits"]',
     'a[href="index.html#seller-benefits"]',
-    'a[href="index.html#how-it-works"]'
+    'a[href="index.html#how-it-works"]',
+    'a[href="/home#shoppers-benefits"]',
+    'a[href="/home#seller-benefits"]',
+    'a[href="/home#how-it-works"]'
   ].join(", ");
 
   document.querySelectorAll(sectionLinkSelector).forEach((link) => {
