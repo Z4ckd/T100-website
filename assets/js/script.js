@@ -8,7 +8,6 @@ window.scrollToId = function (id) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const routeMap = [
-    { pathPattern: /\/index\.html$/i, cleanPath: "/home" },
     { pathPattern: /\/careers\.html$/i, cleanPath: "/careers" },
     { pathPattern: /\/sellers\.html$/i, cleanPath: "/become-a-seller" }
   ];
@@ -26,10 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const cleanLinkMap = new Map([
-    ["index.html", "/home"],
-    ["index.html#shoppers-benefits", "/home#shoppers-benefits"],
-    ["index.html#seller-benefits", "/home#seller-benefits"],
-    ["index.html#how-it-works", "/home#how-it-works"],
     ["careers.html", "/careers"],
     ["sellers.html", "/become-a-seller"]
   ]);
@@ -120,73 +115,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const homeSections = ["shoppers-benefits", "seller-benefits", "how-it-works"];
-  const hasHomeSections = homeSections.every((id) => document.getElementById(id));
-
-  if (!hasHomeSections) return;
-
-  const homePath = "/home";
-  const currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
-  const normalizeHomeUrl = () => {
-    if (window.location.pathname !== homePath || window.location.hash) {
-      window.history.replaceState({}, "", homePath);
-    }
-  };
-
-  const scrollToSection = (sectionId) => {
-    const targetSection = document.getElementById(sectionId);
-    if (!targetSection) return;
-
-    const pill = targetSection.querySelector(".pill");
-    const scrollTarget = pill || targetSection;
-    const navbarHeight = document.querySelector(".navbar")?.offsetHeight || 0;
-    const targetPosition =
-      scrollTarget.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
-
-    window.scrollTo({
-      top: targetPosition,
-      behavior: "smooth"
-    });
-  };
-
-  const sectionLinkSelector = [
-    'a[href="#shoppers-benefits"]',
-    'a[href="#seller-benefits"]',
-    'a[href="#how-it-works"]',
-    'a[href="index.html#shoppers-benefits"]',
-    'a[href="index.html#seller-benefits"]',
-    'a[href="index.html#how-it-works"]',
-    'a[href="/home#shoppers-benefits"]',
-    'a[href="/home#seller-benefits"]',
-    'a[href="/home#how-it-works"]'
-  ].join(", ");
-
-  document.querySelectorAll(sectionLinkSelector).forEach((link) => {
-    link.addEventListener("click", (e) => {
-      const href = link.getAttribute("href") || "";
-      const sectionId = href.split("#")[1];
-
-      if (!sectionId) return;
-
-      e.preventDefault();
-      normalizeHomeUrl();
-      scrollToSection(sectionId);
-    });
-  });
-
-  if (currentPath === "/" || /\/index\.html$/i.test(currentPath) || currentPath === homePath) {
-    const initialSection = window.location.hash.replace(/^#/, "");
-    const hasInitialSection = homeSections.includes(initialSection);
-
-    normalizeHomeUrl();
-
-    if (hasInitialSection) {
-      window.setTimeout(() => {
-        scrollToSection(initialSection);
-      }, 50);
-    }
-  }
 });
