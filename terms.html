@@ -10,7 +10,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800;900&family=Noto+Sans+Khmer:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="/favicon.png" />
 
 <!-- CSS -->
@@ -37,7 +37,14 @@
     <a href="/careers">Careers</a>
   </nav>
 
-  <div id="nav-cta" class="desktop-only">
+  <div id="nav-cta" class="nav-actions desktop-only">
+    <label class="language-switcher" aria-label="Choose language">
+      <span class="language-switcher-icon" aria-hidden="true">EN</span>
+      <select class="language-select" data-language-select>
+        <option value="en">English</option>
+        <option value="km">ខ្មែរ</option>
+      </select>
+    </label>
     <a href="/become-a-seller" class="btn btn-primary nav-cta">Become a Seller</a>
   </div>
 
@@ -55,6 +62,13 @@
     <a href="/" data-home-section="seller-benefits">For Sellers</a>
     <a href="/" data-home-section="how-it-works">How It Works</a>
     <a href="/careers">Careers</a>
+    <label class="language-switcher mobile-language-switcher" aria-label="Choose language">
+      <span class="language-switcher-icon" aria-hidden="true">EN</span>
+      <select class="language-select" data-language-select>
+        <option value="en">English</option>
+        <option value="km">ខ្មែរ</option>
+      </select>
+    </label>
     <a href="/become-a-seller" class="mobile-cta">Become a Seller</a>
   </div>
 
@@ -582,6 +596,7 @@
 
   <!-- Scripts -->
 <script src="assets/js/script.js"></script>
+<script src="assets/js/i18n.js"></script>
 <script src="assets/js/mobile-nav.js"></script>
 
   <!-- React (CDN) + Babel (dev) -->

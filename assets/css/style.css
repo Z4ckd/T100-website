@@ -453,7 +453,57 @@ body {
 #nav-cta{
   display: flex;
   align-items: center;
+  gap: 12px;
   justify-self: end;
+}
+
+.language-switcher{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.language-switcher-icon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  color: #E2012D;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.language-select{
+  min-height: 36px;
+  border: 0;
+  background: transparent;
+  color: #111;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.mobile-language-switcher{
+  display: none;
+}
+
+.is-khmer{
+  font-family: "Noto Sans Khmer", "DM Sans", sans-serif;
+}
+
+.is-khmer .nav-links a,
+.is-khmer .btn,
+.is-khmer .language-select,
+.is-khmer .mobile-menu a{
+  font-family: "Noto Sans Khmer", "DM Sans", sans-serif;
 }
 
 
@@ -825,6 +875,14 @@ img {
   text-align: center;
 }
 
+.mobile-menu .mobile-language-switcher{
+  margin: 12px 0;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
 /* ===== Responsive breakpoint ===== */
 @media (max-width: 768px){
   .nav-links{
@@ -896,6 +954,10 @@ img {
 
   .nav-cta {
     display: none;
+  }
+
+  .mobile-language-switcher{
+    display: inline-flex;
   }
 }
 
