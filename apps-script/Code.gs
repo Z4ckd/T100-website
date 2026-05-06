@@ -1,23 +1,19 @@
 var SPREADSHEET_ID = '1lbDTRVLf-vlpiypPvBbADisSwLv6BVxP1f5tqPYkASc';
 var TEMPLATE_DOC_ID = '1JefdZcyBqWNoD7ZezplyWqkNkwqRIRor';
-var PENDING_FOLDER_ID = '1J8tr9mzLcMG1K6UBsPDIL9z33-_fYsZ6?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
-';
+var PENDING_FOLDER_ID = '1J8tr9mzLcMG1K6UBsPDIL9z33-_fYsZ6';
 var NOTIFY_EMAIL = 'sakdarith.st@gmail.com';
 
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
 
-    var businessName   = data.businessName   || '';
-    var address        = data.address        || '';
-    var shopType       = data.shopType       || '';
-    var productCount   = data.productCount   || '';
-    var openingDays    = data.openingDays    || '';
-    var operatingHours = data.operatingHours || '';
-    var repName        = data.repName        || '';
-    var phone          = data.phone          || '';
-    var backupPhone    = data.backupPhone    || 'N/A';
-    var email          = data.email          || '';
+    var businessName = data.businessName || '';
+    var address      = data.address      || '';
+    var shopType     = data.shopType     || '';
+    var productCount = data.productCount || '';
+    var repName      = data.repName      || '';
+    var phone        = data.phone        || '';
+    var email        = data.email        || '';
     var submissionDate = Utilities.formatDate(
       new Date(), 'Asia/Phnom_Penh', 'dd/MM/yyyy'
     );
@@ -31,16 +27,13 @@ function doPost(e) {
     // 2. Fill merchant placeholders
     var doc  = DocumentApp.openById(docCopy.getId());
     var body = doc.getBody();
-    body.replaceText('\\{\\{BUSINESS_NAME\\}\\}',   businessName);
-    body.replaceText('\\{\\{ADDRESS\\}\\}',          address);
-    body.replaceText('\\{\\{SHOP_TYPE\\}\\}',        shopType);
-    body.replaceText('\\{\\{PRODUCT_COUNT\\}\\}',    productCount);
-    body.replaceText('\\{\\{OPENING_DAYS\\}\\}',     openingDays);
-    body.replaceText('\\{\\{OPERATING_HOURS\\}\\}',  operatingHours);
-    body.replaceText('\\{\\{REP_NAME\\}\\}',         repName);
-    body.replaceText('\\{\\{PHONE\\}\\}',            phone);
-    body.replaceText('\\{\\{BACKUP_PHONE\\}\\}',     backupPhone);
-    body.replaceText('\\{\\{EMAIL\\}\\}',            email);
+    body.replaceText('\\{\\{BUSINESS_NAME\\}\\}', businessName);
+    body.replaceText('\\{\\{ADDRESS\\}\\}',        address);
+    body.replaceText('\\{\\{SHOP_TYPE\\}\\}',      shopType);
+    body.replaceText('\\{\\{PRODUCT_COUNT\\}\\}',  productCount);
+    body.replaceText('\\{\\{REP_NAME\\}\\}',       repName);
+    body.replaceText('\\{\\{PHONE\\}\\}',          phone);
+    body.replaceText('\\{\\{EMAIL\\}\\}',          email);
     doc.saveAndClose();
 
     // 3. Log to Google Sheet
@@ -48,9 +41,8 @@ function doPost(e) {
                                .getSheetByName('Merchant Applications');
     var docUrl = 'https://docs.google.com/document/d/' + docCopy.getId();
     sheet.appendRow([
-      submissionDate, businessName, repName, phone, backupPhone,
-      email, address, shopType, productCount, openingDays,
-      operatingHours, docUrl, 'Pending'
+      submissionDate, businessName, repName, phone,
+      email, address, shopType, productCount, docUrl, 'Pending'
     ]);
 
     // 4. Export as .docx and email
@@ -61,22 +53,22 @@ function doPost(e) {
 
     var emailBody =
       'New merchant application received.\n\n' +
-      'Business Name: '          + businessName   + '\n' +
-      'Representative: '         + repName        + '\n' +
-      'Phone: '                  + phone          + '\n' +
-      'Back-up Phone: '          + backupPhone    + '\n' +
-      'Email: '                  + email          + '\n' +
-      'Address: '                + address        + '\n' +
-      'Shop Type: '              + shopType       + '\n' +
-      'Expected Product Count: ' + productCount   + '\n' +
-      'Opening Days: '           + openingDays    + '\n' +
-      'Operating Hours: '        + operatingHours + '\n' +
+      'Business Name: '          + businessName + '\n' +
+      'Representative: '         + repName      + '\n' +
+      'Phone: '                  + phone        + '\n' +
+      'Email: '                  + email        + '\n' +
+      'Address: '                + address      + '\n' +
+      'Shop Type: '              + shopType     + '\n' +
+      'Expected Product Count: ' + productCount + '\n' +
       'Submitted: '              + submissionDate + '\n\n' +
       'Google Doc: ' + docUrl + '\n\n' +
       'Action required: Open the attached .docx and fill in:\n' +
       '  - Commission Rate\n' +
       '  - Google Maps link\n' +
       '  - ID Number\n' +
+      '  - Back-up Phone Number\n' +
+      '  - Store Opening Days\n' +
+      '  - Store Operating Hours\n' +
       '  - Bank Account Owner Name, Bank Name, Bank Account Number\n' +
       '  - Signature Date\n' +
       'Then export as PDF and send to the merchant for signature.\n' +

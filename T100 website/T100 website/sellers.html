@@ -128,17 +128,6 @@
     </select>
   </div>
 
-  <div class="form-row">
-    <div class="form-group">
-      <label for="openingDays">Store Opening Days *</label>
-      <input type="text" id="openingDays" name="openingDays" required placeholder="e.g. Monday – Sunday" />
-    </div>
-    <div class="form-group">
-      <label for="operatingHours">Store Operating Hours *</label>
-      <input type="text" id="operatingHours" name="operatingHours" required placeholder="e.g. 8am – 6pm" />
-    </div>
-  </div>
-
   <div class="form-group">
     <label for="repName">Representative Name *</label>
     <input type="text" id="repName" name="repName" required placeholder="e.g. Sokha Vann" />
@@ -147,11 +136,6 @@
   <div class="form-group">
     <label for="phone">Phone Number *</label>
     <input type="tel" id="phone" name="phone" required placeholder="+855 12 345 678" />
-  </div>
-
-  <div class="form-group">
-    <label for="backupPhone">Back-up Phone Number <span style="color:#999;font-weight:400;">(Optional)</span></label>
-    <input type="tel" id="backupPhone" name="backupPhone" placeholder="+855 12 345 678" />
   </div>
 
   <div class="form-group">
@@ -250,11 +234,8 @@ document.getElementById('SellerForm').addEventListener('submit', function (e) {
     address:        document.getElementById('address').value.trim(),
     shopType:       document.getElementById('shopType').value.trim(),
     productCount:   document.getElementById('productCount').value,
-    openingDays:    document.getElementById('openingDays').value.trim(),
-    operatingHours: document.getElementById('operatingHours').value.trim(),
     repName:        document.getElementById('repName').value.trim(),
     phone:          document.getElementById('phone').value.trim(),
-    backupPhone:    document.getElementById('backupPhone').value.trim(),
     email:          document.getElementById('email').value.trim()
   };
 
