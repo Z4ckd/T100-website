@@ -1,6 +1,7 @@
-var SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID';
-var TEMPLATE_DOC_ID = 'YOUR_TEMPLATE_DOC_ID';
-var PENDING_FOLDER_ID = 'YOUR_PENDING_FOLDER_ID';
+var SPREADSHEET_ID = '1lbDTRVLf-vlpiypPvBbADisSwLv6BVxP1f5tqPYkASc';
+var TEMPLATE_DOC_ID = '1JefdZcyBqWNoD7ZezplyWqkNkwqRIRor';
+var PENDING_FOLDER_ID = '1J8tr9mzLcMG1K6UBsPDIL9z33-_fYsZ6?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
+';
 var NOTIFY_EMAIL = 'sakdarith.st@gmail.com';
 
 function doPost(e) {
