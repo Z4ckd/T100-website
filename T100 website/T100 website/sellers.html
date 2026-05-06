@@ -208,10 +208,8 @@
   <!-- Load your UI components -->
   <script src="assets/ui/Index.js"></script>
 
-  <!-- Mount UI into the page -->
+  <!-- Form submission -->
   <script>
-    if (!window.UI) throw new Error('UI not loaded (window.UI missing).');
-
 var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyzMzgTx2G6eon4cAGf8j_mWRs-GmSiYK2uOsptIVh-o1gs57mgTIabfT5ekoBgZKZE8Q/exec';
 
 document.getElementById('SellerForm').addEventListener('submit', function (e) {
@@ -221,37 +219,25 @@ document.getElementById('SellerForm').addEventListener('submit', function (e) {
   submitBtn.disabled = true;
   submitBtn.textContent = 'Submitting…';
 
-  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL') {
-    console.error('APPS_SCRIPT_URL is not configured.');
-    showErrorPopup();
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Submit Application →';
-    return;
-  }
-
   var data = {
-    businessName:   document.getElementById('businessName').value.trim(),
-    address:        document.getElementById('address').value.trim(),
-    shopType:       document.getElementById('shopType').value.trim(),
-    productCount:   document.getElementById('productCount').value,
-    repName:        document.getElementById('repName').value.trim(),
-    phone:          document.getElementById('phone').value.trim(),
-    email:          document.getElementById('email').value.trim()
+    businessName: document.getElementById('businessName').value.trim(),
+    address:      document.getElementById('address').value.trim(),
+    shopType:     document.getElementById('shopType').value.trim(),
+    productCount: document.getElementById('productCount').value,
+    repName:      document.getElementById('repName').value.trim(),
+    phone:        document.getElementById('phone').value.trim(),
+    email:        document.getElementById('email').value.trim()
   };
 
   fetch(APPS_SCRIPT_URL, {
     method: 'POST',
+    mode: 'no-cors',
     body: JSON.stringify(data),
     headers: { 'Content-Type': 'text/plain;charset=utf-8' }
   })
-  .then(function (res) { return res.json(); })
-  .then(function (json) {
-    if (json.result === 'success') {
-      showSuccessPopup(data.phone);
-      form.reset();
-    } else {
-      showErrorPopup();
-    }
+  .then(function () {
+    showSuccessPopup(data.phone);
+    form.reset();
   })
   .catch(function () { showErrorPopup(); })
   .finally(function () {
