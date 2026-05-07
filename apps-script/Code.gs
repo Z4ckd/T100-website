@@ -1,7 +1,25 @@
 var SPREADSHEET_ID = '1lbDTRVLf-vlpiypPvBbADisSwLv6BVxP1f5tqPYkASc';
-var TEMPLATE_DOC_ID = '1JefdZcyBqWNoD7ZezplyWqkNkwqRIRor';
+var TEMPLATE_DOC_ID = '1TXcj6QDVLxSdODesPJL3ReilkvBx3KY9UEC_KiCYsHo';
 var PENDING_FOLDER_ID = '1J8tr9mzLcMG1K6UBsPDIL9z33-_fYsZ6';
 var NOTIFY_EMAIL = 'sakdarith.st@gmail.com';
+
+function testScript() {
+  var e = {
+    postData: {
+      contents: JSON.stringify({
+        businessName: 'Test Business',
+        address:      'Test Address',
+        shopType:     'Test Shop',
+        productCount: '1–20 SKUs',
+        repName:      'Test Rep',
+        phone:        '012345678',
+        email:        'test@test.com'
+      })
+    }
+  };
+  var result = doPost(e);
+  Logger.log(result.getContent());
+}
 
 function doPost(e) {
   try {
@@ -46,10 +64,11 @@ function doPost(e) {
     ]);
 
     // 4. Export as .docx and email
-    var docxBlob = docCopy.getAs(
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-    );
-    docxBlob.setName(docName + '.docx');
+    var exportUrl = 'https://www.googleapis.com/drive/v3/files/' + docCopy.getId() +
+      '/export?mimeType=application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    var docxBlob = UrlFetchApp.fetch(exportUrl, {
+      headers: { Authorization: 'Bearer ' + ScriptApp.getOAuthToken() }
+    }).getBlob().setName(docName + '.docx');
 
     var emailBody =
       'New merchant application received.\n\n' +
@@ -86,6 +105,7 @@ function doPost(e) {
       .setMimeType(ContentService.MimeType.JSON);
 
   } catch (err) {
+    Logger.log('ERROR: ' + err.toString());
     return ContentService
       .createTextOutput(JSON.stringify({ result: 'error', message: err.toString() }))
       .setMimeType(ContentService.MimeType.JSON);
