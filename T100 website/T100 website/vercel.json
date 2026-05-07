@@ -1,0 +1,44 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/careers.html",
+      "destination": "/careers",
+      "permanent": true
+    },
+    {
+      "source": "/sellers.html",
+      "destination": "/become-a-seller",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/careers",
+      "destination": "/careers.html"
+    },
+    {
+      "source": "/become-a-seller",
+      "destination": "/sellers.html"
+    }
+  ]
+}

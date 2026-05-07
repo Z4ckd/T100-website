@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir D:\\\\TENH100 website test *)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 *)",
+      "Bash(git reset *)",
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git check-ignore *)",
+      "Bash(git commit -m 'feat: merchant onboarding form with Apps Script contract generation *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "mcp__plugin_vercel_vercel__list_teams",
+      "mcp__plugin_vercel_vercel__list_projects",
+      "mcp__plugin_vercel_vercel__list_deployments",
+      "mcp__plugin_vercel_vercel__deploy_to_vercel",
+      "Bash(vercel --version)",
+      "Bash(vercel deploy *)",
+      "mcp__plugin_vercel_vercel__web_fetch_vercel_url",
+      "Bash(python -c ' *)",
+      "Bash(python -c \"import sys; sys.stdout.buffer.write\\(sys.stdin.buffer.read\\(\\)\\)\")",
+      "Bash(more)"
+    ]
+  }
+}
