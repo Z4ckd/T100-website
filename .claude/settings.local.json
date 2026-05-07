@@ -21,7 +21,8 @@
       "mcp__plugin_vercel_vercel__web_fetch_vercel_url",
       "Bash(python -c ' *)",
       "Bash(python -c \"import sys; sys.stdout.buffer.write\\(sys.stdin.buffer.read\\(\\)\\)\")",
-      "Bash(more)"
+      "Bash(more)",
+      "Bash(npm install *)"
     ]
   }
 }
