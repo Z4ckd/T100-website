@@ -340,19 +340,24 @@ body { margin: 0; }
   max-height: 46px;
 }
 
-.partner-logo-card-aba .partner-logo-image{
-  max-width: 132px;
-  max-height: 42px;
-}
-
 .partner-logo-card-mbs .partner-logo-image{
   max-width: 152px;
   max-height: 42px;
 }
 
-.partner-logo-card-la .partner-logo-image{
-  max-width: 128px;
-  max-height: 64px;
+.partner-logo-card-bodia .partner-logo-image{
+  max-width: 68px;
+  max-height: 68px;
+}
+
+.partner-logo-card-starbalm .partner-logo-image{
+  max-width: 154px;
+  max-height: 62px;
+}
+
+.partner-logo-card-masskh .partner-logo-image{
+  max-width: 152px;
+  max-height: 66px;
 }
 
 @keyframes partners-scroll{

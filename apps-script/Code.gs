@@ -1,7 +1,7 @@
-var SPREADSHEET_ID = '1lbDTRVLf-vlpiypPvBbADisSwLv6BVxP1f5tqPYkASc';
-var TEMPLATE_DOC_ID = '1TXcj6QDVLxSdODesPJL3ReilkvBx3KY9UEC_KiCYsHo';
+var SPREADSHEET_ID    = '1lbDTRVLf-vlpiypPvBbADisSwLv6BVxP1f5tqPYkASc';
+var TEMPLATE_DOC_ID   = '1TXcj6QDVLxSdODesPJL3ReilkvBx3KY9UEC_KiCYsHo';
 var PENDING_FOLDER_ID = '1J8tr9mzLcMG1K6UBsPDIL9z33-_fYsZ6';
-var NOTIFY_EMAIL = 'sakdarith.st@gmail.com';
+var NOTIFY_EMAIL      = 'sakdarith.st@gmail.com';
 
 function testScript() {
   var e = {

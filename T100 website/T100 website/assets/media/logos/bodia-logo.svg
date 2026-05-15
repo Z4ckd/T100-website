@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Bodia logo</title>
+  <desc id="desc">Bodia round mark with wordmark</desc>
+  <rect width="512" height="512" fill="none"/>
+  <circle cx="256" cy="256" r="248" fill="#979f87"/>
+  <g opacity=".18" fill="#2f372d">
+    <circle cx="256" cy="256" r="126"/>
+    <path d="M256 26c56 0 100 19 100 43v87c-27-13-62-20-100-20s-73 7-100 20V69c0-24 44-43 100-43Z"/>
+    <path d="M256 486c-56 0-100-19-100-43v-87c27 13 62 20 100 20s73-7 100-20v87c0 24-44 43-100 43Z"/>
+    <path d="M486 256c0 56-19 100-43 100h-87c13-27 20-62 20-100s-7-73-20-100h87c24 0 43 44 43 100Z"/>
+    <path d="M26 256c0-56 19-100 43-100h87c-13 27-20 62-20 100s7 73 20 100H69c-24 0-43-44-43-100Z"/>
+    <path d="M418 94c40 40 58 84 41 101l-62 62c-10-28-30-57-57-84s-56-47-84-57l62-62c17-17 61 0 100 40Z"/>
+    <path d="M94 418c-40-40-58-84-41-101l62-62c10 28 30 57 57 84s56 47 84 57l-62 62c-17 17-61 0-100-40Z"/>
+    <path d="M418 418c-40 40-84 58-101 41l-62-62c28-10 57-30 84-57s47-56 57-84l62 62c17 17 0 61-40 100Z"/>
+    <path d="M94 94c40-40 84-58 101-41l62 62c-28 10-57 30-84 57s-47 56-57 84l-62-62c-17-17 0-61 40-100Z"/>
+  </g>
+  <g opacity=".23" fill="#f2f5dc">
+    <path d="M255 158c-16 62-50 96-98 98 48 2 82 36 98 98 15-62 49-96 97-98-48-2-82-36-97-98Z"/>
+  </g>
+  <text x="256" y="292" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="118" font-weight="900" letter-spacing="-8" fill="#edf3cc">bodia</text>
+</svg>

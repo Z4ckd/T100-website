@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="title desc">
+  <title id="title">Mass KH logo</title>
+  <desc id="desc">Mass KH Cambodia Performance System mark</desc>
+  <rect width="900" height="500" rx="26" fill="#fff"/>
+  <g fill="none" stroke="#202020" stroke-width="3" opacity=".55">
+    <circle cx="450" cy="250" r="218"/>
+    <circle cx="450" cy="250" r="196" stroke-dasharray="18 12"/>
+  </g>
+  <g stroke="#ff5a00" stroke-width="9" stroke-linecap="square" opacity=".95">
+    <path d="M372 47h16M402 47h16M432 47h16"/>
+    <path d="M754 112h72"/>
+    <path d="M73 302v-92"/>
+    <path d="M574 453h16M604 453h16M634 453h16"/>
+  </g>
+  <text x="450" y="94" text-anchor="middle" font-family="Eurostile, Orbitron, Arial, sans-serif" font-size="22" letter-spacing="8" fill="#ff5a00">UNITED PERFORMANCE</text>
+  <text x="450" y="126" text-anchor="middle" font-family="Eurostile, Orbitron, Arial, sans-serif" font-size="22" letter-spacing="7" fill="#202020">STRONGER TOGETHER</text>
+  <g transform="translate(277 139)">
+    <path d="M0 95V0l174 78L348 0v95h-43V67L174 126 43 67v28Z" fill="#0b0b0b" stroke="#ff8a00" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M43 148V84l131 58 131-58v64L174 214Z" fill="#0b0b0b" stroke="#ff8a00" stroke-width="6" stroke-linejoin="round"/>
+  </g>
+  <text x="450" y="349" text-anchor="middle" font-family="Orbitron, Eurostile, Arial Black, Arial, sans-serif" font-size="70" font-weight="900" letter-spacing="12" fill="#050505">MASS KH</text>
+  <text x="450" y="392" text-anchor="middle" font-family="Orbitron, Eurostile, Arial, sans-serif" font-size="22" letter-spacing="12" fill="#ff5a00">CAMBODIA PERFORMANCE SYSTEM</text>
+  <text x="450" y="438" text-anchor="middle" font-family="Orbitron, Eurostile, Arial, sans-serif" font-size="24" letter-spacing="11" fill="#202020">WEAPONIZED YOUR PHYSIQUE</text>
+</svg>
